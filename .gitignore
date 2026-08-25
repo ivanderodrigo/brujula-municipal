@@ -1,9 +1,13 @@
-tools/cache/*.ZIP
-tools/cache/*.zip
-tools/cache/*.json
-tools/__pycache__/
-*.pyc
-data/generated/raw_bdns/
-data/generated/boe_raw/
-logs/*.txt
-tools/cache/
+# Python local artifacts
+__pycache__/
+*.py[cod]
+
+# Local caches / downloaded source files
+tools/cache/*
+!tools/cache/.gitkeep
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

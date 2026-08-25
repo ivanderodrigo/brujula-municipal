@@ -1,35 +1,27 @@
-# Automatización de producción
+# Automatización de producción · v0.7
 
-## Qué ocurre cada día
-
-A las 03:17 UTC GitHub lanza `.github/workflows/actualizar-datos.yml`.
-
-El workflow ejecuta:
-
-```text
-actualizar_todo.py --mode daily
-  ├─ localidades, si han pasado 30 días
-  ├─ BDNS, si ha pasado 1 día
-  ├─ BOE, si ha pasado 1 día
-  └─ validar_sitio.py --require-national
-```
-
-Solo si todo termina correctamente realiza `git commit` y `git push`.
-
-## Si una fuente falla
-
-El job termina con error antes del commit. La versión publicada permanece intacta.
-
-## Si una fuente devuelve datos incompletos
-
-La validación rechaza, por ejemplo, un catálogo de localidades con menos de 30.000 entidades. El resultado no se publica.
-
-## Última comprobación
-
-`data/system/last-check.json` se regenera en cada ejecución satisfactoria. La web lo utiliza para indicar cuándo se comprobaron por última vez los datos.
+La actualización se ejecuta en GitHub Actions y genera archivos estáticos. El visitante nunca consulta MITECO, INE, BDNS o BOE en tiempo real.
 
 ## Cadencias
 
-Las cadencias se controlan mediante `data/system/update-state.json`. No dependen del servidor web.
+| Fuente | Cadencia por defecto | Motivo |
+|---|---:|---|
+| BDNS | 1 día | Convocatorias y cambios frecuentes |
+| BOE | 1 día | Novedades normativas |
+| Localidades IGN/CNIG | 30 días | Catálogo estable |
+| Indicadores territoriales MITECO | 180 días | Publicación esencialmente anual |
+| Renta INE | 180 días | Publicación anual |
 
-Para forzar todo manualmente desde GitHub, ejecutar el workflow con `mode=full`.
+`Run workflow → full` fuerza todo.
+
+## Pipeline
+
+Fuente → descarga offline → extracción → JSON → benchmark → validación → commit → hosting estático.
+
+Los indicadores MITECO se obtienen de shapefiles. El script v0.7 lee el DBF con Python estándar, sin instalar geopandas ni servidores GIS.
+
+## Fallos
+
+Los radares críticos BDNS/BOE mantienen el comportamiento de bloqueo ante error según el pipeline. Los enriquecimientos territoriales conservan la última copia válida cuando una fuente anual no está disponible.
+
+Nunca se genera un valor ficticio para completar una ficha.

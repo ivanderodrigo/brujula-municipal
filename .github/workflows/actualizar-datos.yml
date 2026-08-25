@@ -1,9 +1,9 @@
 name: Actualizar datos de Brújula Municipal
 
-on:
+"on":
   schedule:
+    # 03:17 UTC: evita las horas en punto, donde GitHub avisa de mayor carga.
     - cron: '17 3 * * *'
-
   workflow_dispatch:
     inputs:
       mode:
@@ -27,7 +27,6 @@ jobs:
   update:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4

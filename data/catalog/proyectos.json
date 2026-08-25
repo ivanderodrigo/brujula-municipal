@@ -4050,5 +4050,1953 @@
     "maintenance": "Definir responsable, soporte, exportación de datos, continuidad y costes recurrentes antes de adjudicar.",
     "cost_note": "Banda cualitativa editorial (€ / €€ / €€€). No equivale a presupuesto ni precio de mercado; debe estimarse con alcance y ofertas reales.",
     "evidence_level": "plantilla editorial · costes por verificar"
+  },
+  {
+    "id": "inventario-datos-municipales",
+    "title": "Inventario y mapa de datos municipales",
+    "category": "datos",
+    "summary": "Saber qué datos existen, dónde viven, quién responde de ellos y qué calidad tienen.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–3 meses",
+    "tags": [
+      "datos",
+      "gobernanza",
+      "ia"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "catalogo-datos",
+    "title": "Catálogo interno de datos y responsables",
+    "category": "datos",
+    "summary": "Crear un catálogo sencillo de datasets, propietarios, periodicidad, sensibilidad y reutilización.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "2–4 meses",
+    "tags": [
+      "datos",
+      "gobernanza"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "politica-ia",
+    "title": "Política municipal de uso de inteligencia artificial",
+    "category": "ia",
+    "summary": "Definir usos permitidos, controles, transparencia, datos y responsabilidades antes de incorporar herramientas de IA.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "1–3 meses",
+    "tags": [
+      "ia",
+      "gobernanza",
+      "datos"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "asistente-interno-documental",
+    "title": "Asistente interno sobre documentación municipal",
+    "category": "ia",
+    "summary": "Facilitar búsqueda y resumen sobre documentación autorizada, con fuentes y controles de acceso.",
+    "complexity": "alta",
+    "cost_band": "€€",
+    "duration_band": "3–6 meses",
+    "tags": [
+      "ia",
+      "documentos",
+      "productividad"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "contabilidad-energetica",
+    "title": "Contabilidad energética municipal",
+    "category": "energia",
+    "summary": "Consolidar consumos, contratos y costes por edificio, suministro y servicio para decidir dónde actuar.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–3 meses",
+    "tags": [
+      "energia",
+      "datos"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "auditoria-alumbrado",
+    "title": "Inventario y auditoría del alumbrado",
+    "category": "energia",
+    "summary": "Conocer cuadros, luminarias, potencias, consumos y puntos críticos antes de renovar.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "2–5 meses",
+    "tags": [
+      "energia",
+      "alumbrado"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "alumbrado-led-telegestion",
+    "title": "Renovación LED con telegestión proporcionada",
+    "category": "energia",
+    "summary": "Reducir consumo y mantenimiento evitando sobredimensionar sensores y plataformas.",
+    "complexity": "media",
+    "cost_band": "€€€",
+    "duration_band": "6–18 meses",
+    "tags": [
+      "energia",
+      "alumbrado",
+      "telegestion"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "autoconsumo-edificios",
+    "title": "Autoconsumo en edificios municipales",
+    "category": "energia",
+    "summary": "Evaluar y desplegar autoconsumo donde perfil de consumo, cubierta y mantenimiento lo justifiquen.",
+    "complexity": "media",
+    "cost_band": "€€",
+    "duration_band": "4–12 meses",
+    "tags": [
+      "energia",
+      "autoconsumo"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "mfa-cuentas-criticas",
+    "title": "MFA para cuentas críticas",
+    "category": "ciberseguridad",
+    "summary": "Reducir el riesgo de robo de credenciales en correo, administración, nube y acceso remoto.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–2 meses",
+    "tags": [
+      "ciberseguridad",
+      "mfa",
+      "ens"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "backup-inmutable",
+    "title": "Copias aisladas o inmutables y prueba de recuperación",
+    "category": "ciberseguridad",
+    "summary": "Evitar que un incidente cifre simultáneamente producción y copias y comprobar que la recuperación funciona.",
+    "complexity": "media",
+    "cost_band": "€€",
+    "duration_band": "2–4 meses",
+    "tags": [
+      "ciberseguridad",
+      "backup",
+      "ens"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "plan-respuesta-incidentes",
+    "title": "Plan práctico de respuesta a incidentes",
+    "category": "ciberseguridad",
+    "summary": "Definir quién llama a quién, qué se aísla, qué evidencias se conservan y cómo se recuperan servicios.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–2 meses",
+    "tags": [
+      "ciberseguridad",
+      "incidentes",
+      "ens"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "inventario-activos-ti",
+    "title": "Inventario de activos, cuentas y proveedores TIC",
+    "category": "ciberseguridad",
+    "summary": "Crear una visión única de equipos, software, cuentas, dominios, contratos y responsables.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–2 meses",
+    "tags": [
+      "ciberseguridad",
+      "inventario",
+      "ens"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "inventario-patrimonio-digital",
+    "title": "Inventario digital de patrimonio y recursos",
+    "category": "patrimonio",
+    "summary": "Estructurar bienes, historias, fotografías, localización, derechos y estado antes de crear experiencias.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "2–4 meses",
+    "tags": [
+      "patrimonio",
+      "datos",
+      "turismo"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "rutas-qr",
+    "title": "Rutas web y señalización QR accesible",
+    "category": "turismo",
+    "summary": "Publicar rutas ligeras y mantenibles sin obligar a instalar una aplicación.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "2–4 meses",
+    "tags": [
+      "turismo",
+      "rutas",
+      "patrimonio"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "archivo-fotografico-digital",
+    "title": "Archivo fotográfico y memoria local",
+    "category": "patrimonio",
+    "summary": "Preservar, describir y publicar selectivamente fotografías y documentos con derechos controlados.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "3–8 meses",
+    "tags": [
+      "patrimonio",
+      "archivo",
+      "cultura"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "transporte-demanda",
+    "title": "Transporte a demanda de proximidad",
+    "category": "movilidad",
+    "summary": "Coordinar reservas y rutas para servicios esenciales en territorios dispersos.",
+    "complexity": "alta",
+    "cost_band": "€€",
+    "duration_band": "6–12 meses",
+    "tags": [
+      "movilidad",
+      "servicios",
+      "mayores"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "agenda-servicios-moviles",
+    "title": "Agenda de servicios itinerantes",
+    "category": "servicios",
+    "summary": "Coordinar y comunicar consultas, oficinas móviles, bibliobús u otros servicios de presencia periódica.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–3 meses",
+    "tags": [
+      "servicios",
+      "mayores",
+      "movilidad"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "teleasistencia-comunitaria",
+    "title": "Teleasistencia y acompañamiento comunitario complementario",
+    "category": "servicios",
+    "summary": "Conectar atención remota con protocolos locales y red comunitaria, sin sustituir servicios competentes.",
+    "complexity": "alta",
+    "cost_band": "€€",
+    "duration_band": "4–10 meses",
+    "tags": [
+      "mayores",
+      "servicios",
+      "cuidados"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "red-voluntariado",
+    "title": "Coordinación local de voluntariado y apoyo vecinal",
+    "category": "servicios",
+    "summary": "Ordenar oferta y demanda de apoyo comunitario con criterios de privacidad y responsabilidad.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "2–4 meses",
+    "tags": [
+      "servicios",
+      "cuidados",
+      "participacion"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "bolsa-vivienda-local",
+    "title": "Bolsa municipal de vivienda y acompañamiento",
+    "category": "vivienda",
+    "summary": "Conectar oferta verificable con demanda, ayudas y servicios de acogida.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "3–8 meses",
+    "tags": [
+      "vivienda",
+      "despoblacion",
+      "acogida"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "portal-acogida",
+    "title": "Portal práctico para nuevos residentes",
+    "category": "despoblacion",
+    "summary": "Reunir vivienda, empleo, servicios, escolarización, transporte y trámites en una única guía útil.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "2–4 meses",
+    "tags": [
+      "despoblacion",
+      "acogida",
+      "servicios"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "mapa-servicios-nuevos-residentes",
+    "title": "Mapa de servicios para llegada y arraigo",
+    "category": "despoblacion",
+    "summary": "Mostrar tiempos, disponibilidad y contactos reales de servicios clave para familias y trabajadores.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "2–4 meses",
+    "tags": [
+      "despoblacion",
+      "servicios",
+      "mapas"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "inventario-contratos-tic",
+    "title": "Inventario de contratos, licencias y renovaciones TIC",
+    "category": "contratacion",
+    "summary": "Saber qué se paga, cuándo vence, qué datos custodia cada proveedor y qué depende de cada contrato.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–2 meses",
+    "tags": [
+      "contratacion",
+      "proveedores",
+      "digitalizacion"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "catalogo-necesidades",
+    "title": "Catálogo de necesidades antes de licitar",
+    "category": "contratacion",
+    "summary": "Traducir problemas municipales a resultados y requisitos antes de escribir especificaciones técnicas.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–2 meses",
+    "tags": [
+      "contratacion",
+      "planificacion"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "modelo-sla-proveedores",
+    "title": "Modelo de SLA y obligaciones de proveedores",
+    "category": "contratacion",
+    "summary": "Definir tiempos de respuesta, continuidad, datos, seguridad, salida y evidencias de servicio.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "1–3 meses",
+    "tags": [
+      "contratacion",
+      "proveedores",
+      "ciberseguridad"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "plan-renovaciones",
+    "title": "Calendario de renovaciones y fin de soporte",
+    "category": "contratacion",
+    "summary": "Anticipar licencias, dominios, certificados, equipos y contratos antes de que se conviertan en urgencias.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–2 meses",
+    "tags": [
+      "contratacion",
+      "planificacion"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "mapa-accesibilidad-servicios",
+    "title": "Mapa de accesibilidad a servicios esenciales",
+    "category": "territorio",
+    "summary": "Analizar tiempos reales de acceso a salud, educación, transporte, comercio y administración.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "3–6 meses",
+    "tags": [
+      "territorio",
+      "servicios",
+      "movilidad",
+      "despoblacion"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "ventanilla-movil",
+    "title": "Ventanilla municipal itinerante",
+    "category": "servicios",
+    "summary": "Acercar trámites y atención periódica a núcleos dispersos o personas con dificultades de desplazamiento.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "3–6 meses",
+    "tags": [
+      "servicios",
+      "administracion",
+      "movilidad"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "espacio-multiservicio",
+    "title": "Espacio municipal multiservicio",
+    "category": "servicios",
+    "summary": "Concentrar conectividad, teletrabajo, atención remota y servicios itinerantes en un punto existente.",
+    "complexity": "media",
+    "cost_band": "€€",
+    "duration_band": "4–10 meses",
+    "tags": [
+      "servicios",
+      "conectividad",
+      "despoblacion"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "inventario-residuos",
+    "title": "Inventario de puntos, rutas y costes de residuos",
+    "category": "residuos",
+    "summary": "Conocer generación, frecuencias, incidencias y coste antes de sensorizar contenedores o rutas.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "2–4 meses",
+    "tags": [
+      "residuos",
+      "datos"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "rutas-recogida-optimizadas",
+    "title": "Optimización de rutas de recogida",
+    "category": "residuos",
+    "summary": "Reducir kilómetros y mejorar frecuencias a partir de datos de servicio, no solo de sensores.",
+    "complexity": "media",
+    "cost_band": "€€",
+    "duration_band": "3–7 meses",
+    "tags": [
+      "residuos",
+      "movilidad",
+      "datos"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "refugios-climaticos",
+    "title": "Mapa y protocolo de refugios climáticos",
+    "category": "clima",
+    "summary": "Identificar espacios frescos, horarios, población vulnerable y comunicación durante episodios extremos.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–3 meses",
+    "tags": [
+      "clima",
+      "mayores",
+      "servicios"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "sensores-inundacion",
+    "title": "Alerta local de cauces y puntos inundables",
+    "category": "clima",
+    "summary": "Complementar sistemas oficiales con vigilancia local de puntos críticos y protocolos claros de actuación.",
+    "complexity": "alta",
+    "cost_band": "€€",
+    "duration_band": "4–10 meses",
+    "tags": [
+      "clima",
+      "sensores",
+      "proteccion-civil"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "directorio-comercio-local",
+    "title": "Directorio vivo de comercio y servicios",
+    "category": "comercio",
+    "summary": "Mantener información útil y estructurada de negocios, horarios y servicios sin crear un marketplace complejo.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–3 meses",
+    "tags": [
+      "comercio",
+      "servicios",
+      "datos"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "espacio-coworking-ligero",
+    "title": "Espacio de trabajo compartido ligero",
+    "category": "emprendimiento",
+    "summary": "Aprovechar un espacio existente con conectividad y normas sencillas antes de construir un centro costoso.",
+    "complexity": "media",
+    "cost_band": "€€",
+    "duration_band": "3–8 meses",
+    "tags": [
+      "emprendimiento",
+      "teletrabajo",
+      "conectividad"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "wifi-edificios-municipales",
+    "title": "Wi‑Fi segmentado en edificios municipales",
+    "category": "conectividad",
+    "summary": "Mejorar cobertura separando adecuadamente redes internas, invitados y dispositivos.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "2–5 meses",
+    "tags": [
+      "conectividad",
+      "ciberseguridad",
+      "wifi"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "monitorizacion-conectividad",
+    "title": "Monitorización de conectividad y caídas",
+    "category": "conectividad",
+    "summary": "Medir disponibilidad y calidad de enlaces municipales para justificar mejoras y detectar incidencias.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "1–3 meses",
+    "tags": [
+      "conectividad",
+      "datos"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "panel-incidencias-ciudadanas",
+    "title": "Canal ligero de incidencias ciudadanas",
+    "category": "participacion",
+    "summary": "Recibir, clasificar y cerrar incidencias sin desplegar una app móvil obligatoria.",
+    "complexity": "baja",
+    "cost_band": "€",
+    "duration_band": "2–4 meses",
+    "tags": [
+      "participacion",
+      "servicios",
+      "administracion"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "presupuesto-participativo-ligero",
+    "title": "Proceso participativo digital ligero",
+    "category": "participacion",
+    "summary": "Abrir propuestas y priorización con reglas transparentes y alternativas presenciales.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "2–5 meses",
+    "tags": [
+      "participacion",
+      "transparencia"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "panel-indicadores-municipales",
+    "title": "Cuadro de indicadores municipales esencial",
+    "category": "datos",
+    "summary": "Seleccionar pocos indicadores de servicios y proyectos para decidir, no un dashboard ornamental.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "2–5 meses",
+    "tags": [
+      "datos",
+      "gobernanza",
+      "transparencia"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "archivo-actas-acuerdos",
+    "title": "Buscador de actas y acuerdos públicos",
+    "category": "transparencia",
+    "summary": "Estructurar y facilitar la consulta de actas/acuerdos publicables con control de protección de datos.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "3–6 meses",
+    "tags": [
+      "transparencia",
+      "archivo",
+      "datos"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "inventario-arbolado",
+    "title": "Inventario y mantenimiento de arbolado urbano",
+    "category": "medioambiente",
+    "summary": "Localizar ejemplares, riesgo, podas y actuaciones para planificar mantenimiento y seguridad.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "3–6 meses",
+    "tags": [
+      "medioambiente",
+      "datos",
+      "mantenimiento"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "inventario-caminos",
+    "title": "Inventario de caminos y mantenimiento",
+    "category": "territorio",
+    "summary": "Registrar trazados, estado, titularidad y actuaciones para priorizar mantenimiento rural.",
+    "complexity": "media",
+    "cost_band": "€",
+    "duration_band": "3–8 meses",
+    "tags": [
+      "territorio",
+      "mantenimiento",
+      "mapas"
+    ],
+    "obligations": [],
+    "opportunities": [],
+    "cost_note": "Banda editorial cualitativa para comparar órdenes de magnitud; requiere presupuesto y alcance real.",
+    "municipality_fit": "Aplicable cuando existe una necesidad concreta, un responsable y capacidad razonable de mantener el resultado.",
+    "first_steps": [
+      "Definir el problema y el resultado esperado con datos básicos.",
+      "Comprobar si existe un servicio común, provincial o autonómico reutilizable.",
+      "Delimitar un alcance mínimo viable y responsables.",
+      "Revisar obligaciones, financiación y costes recurrentes.",
+      "Medir el resultado antes de ampliar el proyecto."
+    ],
+    "risks": [
+      "Comprar tecnología antes de concretar la necesidad.",
+      "Crear una dependencia de proveedor o de licencias no prevista.",
+      "No asignar responsable de operación y mantenimiento."
+    ],
+    "maintenance": "Definir quién mantiene datos, equipos, contenidos, contratos y continuidad una vez finalice la implantación.",
+    "evidence_level": "plantilla editorial v0.6"
+  },
+  {
+    "id": "plan-arraigo-joven",
+    "title": "Plan local de arraigo joven",
+    "category": "despoblacion",
+    "summary": "Coordinar vivienda, empleo, formación, ocio y participación para retener y atraer población joven.",
+    "complexity": "media",
+    "tags": [
+      "despoblacion",
+      "vivienda",
+      "juventud",
+      "emprendimiento"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "programa-retorno",
+    "title": "Programa de retorno y vínculo con población emigrada",
+    "category": "despoblacion",
+    "summary": "Mantener relación con antiguos residentes y facilitar oportunidades de retorno o inversión local.",
+    "complexity": "baja",
+    "tags": [
+      "despoblacion",
+      "acogida",
+      "emprendimiento"
+    ],
+    "cost_band": "€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "servicio-acompanamiento-mayores",
+    "title": "Acompañamiento de proximidad para mayores",
+    "category": "servicios",
+    "summary": "Organizar detección de necesidades, acompañamiento y coordinación con recursos sociales existentes.",
+    "complexity": "media",
+    "tags": [
+      "servicios",
+      "mayores",
+      "movilidad"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "transporte-sanitario-no-urgente",
+    "title": "Coordinación local de movilidad a citas y servicios",
+    "category": "movilidad",
+    "summary": "Facilitar información, coordinación y soluciones compartidas para desplazamientos no urgentes a servicios esenciales.",
+    "complexity": "media",
+    "tags": [
+      "movilidad",
+      "servicios"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "punto-farmaceutico-logistico",
+    "title": "Coordinación logística de acceso a medicamentos",
+    "category": "servicios",
+    "summary": "Analizar soluciones legales y coordinadas para territorios sin farmacia, sin sustituir la dispensación profesional.",
+    "complexity": "media",
+    "tags": [
+      "servicios",
+      "movilidad",
+      "mayores"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "plan-acceso-educacion",
+    "title": "Plan de accesibilidad cotidiana a educación",
+    "category": "servicios",
+    "summary": "Identificar barreras de transporte, horarios y conciliación para hogares con centros educativos fuera del municipio.",
+    "complexity": "media",
+    "tags": [
+      "servicios",
+      "movilidad",
+      "despoblacion"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "mapa-tiempo-servicios",
+    "title": "Mapa local de tiempos de acceso a servicios esenciales",
+    "category": "movilidad",
+    "summary": "Reunir tiempos y alternativas de acceso a sanidad, educación, comercio, transporte y administración.",
+    "complexity": "baja",
+    "tags": [
+      "movilidad",
+      "servicios",
+      "datos"
+    ],
+    "cost_band": "€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "plan-conectividad-hogares",
+    "title": "Plan local de conectividad y zonas sin servicio suficiente",
+    "category": "conectividad",
+    "summary": "Detectar hogares y áreas con dificultades reales y orientar ayudas, alternativas y despliegues.",
+    "complexity": "media",
+    "tags": [
+      "conectividad",
+      "datos",
+      "despoblacion"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "punto-conectividad-resiliente",
+    "title": "Punto público de conectividad resiliente",
+    "category": "conectividad",
+    "summary": "Asegurar un lugar con conectividad, energía y soporte básico ante caídas o brecha digital.",
+    "complexity": "media",
+    "tags": [
+      "conectividad",
+      "servicios",
+      "resiliencia"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "plan-logistica-rural",
+    "title": "Plan de logística de última milla rural",
+    "category": "emprendimiento",
+    "summary": "Coordinar recepción, reparto y necesidades logísticas de comercio, productores y población dispersa.",
+    "complexity": "media",
+    "tags": [
+      "emprendimiento",
+      "movilidad",
+      "servicios"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "microhub-servicios",
+    "title": "Microhub municipal de servicios compartidos",
+    "category": "servicios",
+    "summary": "Concentrar varios servicios periódicos o itinerantes en un único espacio y calendario comprensible.",
+    "complexity": "media",
+    "tags": [
+      "servicios",
+      "despoblacion",
+      "administracion"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "plan-acogida-familias",
+    "title": "Plan de acogida integral para nuevas familias",
+    "category": "despoblacion",
+    "summary": "Convertir vivienda, escolarización, empleo y trámites en una ruta única de llegada.",
+    "complexity": "baja",
+    "tags": [
+      "despoblacion",
+      "vivienda",
+      "servicios"
+    ],
+    "cost_band": "€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "observatorio-vivienda-local",
+    "title": "Observatorio ligero de vivienda disponible y demanda",
+    "category": "vivienda",
+    "summary": "Mantener datos mínimos de oferta, estado, demanda y barreras para orientar rehabilitación y movilización.",
+    "complexity": "baja",
+    "tags": [
+      "vivienda",
+      "datos",
+      "despoblacion"
+    ],
+    "cost_band": "€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "banco-rehabilitacion",
+    "title": "Banco de actuaciones de rehabilitación priorizadas",
+    "category": "vivienda",
+    "summary": "Ordenar inmuebles y actuaciones por urgencia, coste, impacto energético y potencial de uso.",
+    "complexity": "media",
+    "tags": [
+      "vivienda",
+      "energia",
+      "patrimonio"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "plan-cuidados-territorial",
+    "title": "Plan local de cuidados y soledad no deseada",
+    "category": "servicios",
+    "summary": "Cruzar envejecimiento, dispersión y recursos para priorizar acompañamiento y coordinación comunitaria.",
+    "complexity": "media",
+    "tags": [
+      "servicios",
+      "mayores",
+      "datos"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "plan-accesibilidad-administrativa",
+    "title": "Administración accesible para población mayor o con baja conectividad",
+    "category": "administracion",
+    "summary": "Diseñar canales presenciales, telefónicos y digitales que eviten exclusión por edad, discapacidad o conectividad.",
+    "complexity": "baja",
+    "tags": [
+      "administracion",
+      "servicios",
+      "accesibilidad"
+    ],
+    "cost_band": "€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "inventario-recursos-compartibles",
+    "title": "Inventario comarcal de recursos compartibles",
+    "category": "contratacion",
+    "summary": "Identificar equipos, personal, vehículos, plataformas y contratos que podrían compartirse entre entidades.",
+    "complexity": "media",
+    "tags": [
+      "contratacion",
+      "servicios",
+      "datos"
+    ],
+    "cost_band": "€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "programa-compra-conjunta",
+    "title": "Programa de compra o contratación conjunta",
+    "category": "contratacion",
+    "summary": "Preparar necesidades homogéneas para centrales de contratación, acuerdos o cooperación supramunicipal.",
+    "complexity": "alta",
+    "tags": [
+      "contratacion",
+      "servicios"
+    ],
+    "cost_band": "€€",
+    "duration_band": "9–24 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "plan-resiliencia-servicios",
+    "title": "Plan de continuidad de servicios esenciales rurales",
+    "category": "resiliencia",
+    "summary": "Priorizar agua, comunicaciones, energía, atención y coordinación ante incidencias prolongadas.",
+    "complexity": "media",
+    "tags": [
+      "resiliencia",
+      "agua",
+      "energia",
+      "conectividad"
+    ],
+    "cost_band": "€€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
+  },
+  {
+    "id": "cartera-inversion-municipal",
+    "title": "Cartera plurianual de inversión y mantenimiento",
+    "category": "administracion",
+    "summary": "Ordenar proyectos a 1, 3 y 5 años incluyendo costes recurrentes, dependencia de ayudas y capacidad de ejecución.",
+    "complexity": "media",
+    "tags": [
+      "administracion",
+      "datos",
+      "contratacion"
+    ],
+    "cost_band": "€",
+    "duration_band": "3–12 meses",
+    "municipality_fit": "Especialmente útil cuando los indicadores territoriales muestran una necesidad relacionada o el ayuntamiento la declara como prioridad.",
+    "first_steps": [
+      "Confirmar el problema con datos y testimonios locales.",
+      "Comprobar competencias y servicios supramunicipales existentes.",
+      "Definir un alcance mínimo y responsables.",
+      "Estimar coste total y mantenimiento.",
+      "Revisar financiación y contratación antes de ejecutar."
+    ],
+    "risks": [
+      "Crear un servicio sin demanda suficiente.",
+      "Duplicar recursos ya existentes.",
+      "No prever operación y mantenimiento."
+    ],
+    "maintenance": "Definir responsable, periodicidad de revisión, indicadores y mecanismo de cierre si deja de aportar valor.",
+    "evidence_level": "plantilla editorial conectada a señales territoriales"
   }
 ]

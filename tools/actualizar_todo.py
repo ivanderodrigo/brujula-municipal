@@ -14,7 +14,7 @@ STATE=ROOT/'data'/'system'/'update-state.json'
 HEARTBEAT=ROOT/'data'/'system'/'last-check.json'
 LOG=ROOT/'logs'/'ultima-actualizacion.txt'
 
-DEFAULT_CADENCE={'localities':30,'bdns':1,'boe':1}
+DEFAULT_CADENCE={'localities':30,'bdns':1,'boe':1,'territorial':180,'income':180}
 
 def now_utc(): return dt.datetime.now(dt.timezone.utc)
 def load_json(path,default):
@@ -27,7 +27,8 @@ def parse_iso(v):
 
 def due(state,key,days,force=False):
     if force:return True
-    last=parse_iso(state.get('sources',{}).get(key,{}).get('last_success'))
+    src=state.get('sources',{}).get(key,{})
+    last=parse_iso(src.get('last_success') or src.get('last_attempt'))
     if not last:return True
     return (now_utc()-last).total_seconds() >= days*86400
 
@@ -35,6 +36,14 @@ def run(label,args):
     print(f'\n=== {label} ===')
     p=subprocess.run([sys.executable,*map(str,args)],cwd=ROOT)
     if p.returncode: raise RuntimeError(f'{label} falló con código {p.returncode}')
+
+def run_optional(label,args):
+    print(f'\n=== {label} (fuente de enriquecimiento) ===')
+    p=subprocess.run([sys.executable,*map(str,args)],cwd=ROOT)
+    if p.returncode:
+        print(f'AVISO: {label} no se actualizó (código {p.returncode}); se conserva la última copia válida.')
+        return False
+    return True
 
 def mark(state,key,ok=True,error=None):
     src=state.setdefault('sources',{}).setdefault(key,{})
@@ -64,6 +73,8 @@ def main():
     ap.add_argument('--localities-days',type=int,default=DEFAULT_CADENCE['localities'])
     ap.add_argument('--bdns-days',type=int,default=DEFAULT_CADENCE['bdns'])
     ap.add_argument('--boe-days',type=int,default=DEFAULT_CADENCE['boe'])
+    ap.add_argument('--territorial-days',type=int,default=DEFAULT_CADENCE['territorial'])
+    ap.add_argument('--income-days',type=int,default=DEFAULT_CADENCE['income'])
     ap.add_argument('--bdns-window',type=int,default=120)
     ap.add_argument('--boe-window',type=int,default=60)
     a=ap.parse_args()
@@ -76,6 +87,12 @@ def main():
                 run('Radar BDNS', [ROOT/'tools'/'actualizar_bdns.py','--days',str(a.bdns_window),'--max-details','300']); mark(state,'bdns'); ran.append('bdns')
             if due(state,'boe',a.boe_days,force):
                 run('Radar BOE', [ROOT/'tools'/'actualizar_boe.py','--days',str(a.boe_window),'--max-details','180']); mark(state,'boe'); ran.append('boe')
+            if due(state,'territorial',a.territorial_days,force):
+                ok=run_optional('Indicadores territoriales MITECO', [ROOT/'tools'/'actualizar_indicadores_territoriales.py']); mark(state,'territorial',ok=ok,error=None if ok else 'No actualizado; ver source_status'); ran.append('territorial')
+            if due(state,'income',a.income_days,force):
+                ok=run_optional('Renta municipal INE', [ROOT/'tools'/'actualizar_renta_ine.py']); mark(state,'income',ok=ok,error=None if ok else 'No actualizado'); ran.append('income')
+            if 'territorial' in ran or 'income' in ran or force:
+                run('Benchmark territorial', [ROOT/'tools'/'generar_benchmark_territorial.py'])
         # In production automation we require the national catalogue.
         require_national = os.environ.get('BRUJULA_REQUIRE_NATIONAL','0')=='1'
         cmd=[ROOT/'tools'/'validar_sitio.py']+(['--require-national'] if require_national else [])

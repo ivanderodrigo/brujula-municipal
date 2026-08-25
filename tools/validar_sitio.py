@@ -60,19 +60,33 @@ def validate_counts(errors, warnings, require_national=False):
     obligations=items_of(load('data/catalog/obligaciones.json'))
     opportunities=items_of(load('data/catalog/oportunidades.json'))
     support=items_of(load('data/catalog/apoyo.json'))
-    if len(projects)<100: errors.append(f'Proyectos insuficientes: {len(projects)} < 100')
+    services=items_of(load('data/catalog/servicios_comunes.json'))
+    playbooks=items_of(load('data/catalog/playbooks.json'))
+    signals=items_of(load('data/catalog/observatorio.json'))
+    indicators=items_of(load('data/catalog/indicadores_fuentes.json'))
+    if len(projects)<170: errors.append(f'Proyectos insuficientes: {len(projects)} < 170')
     if len(obligations)<20: errors.append(f'Obligaciones insuficientes: {len(obligations)} < 20')
     if len(opportunities)<5: errors.append(f'Oportunidades revisadas insuficientes: {len(opportunities)} < 5')
     if len(support)<5: warnings.append(f'Cobertura de apoyo todavía pequeña: {len(support)}')
+    if len(services)<10: errors.append(f'Servicios comunes insuficientes: {len(services)} < 10')
+    if len(playbooks)<12: errors.append(f'Playbooks insuficientes: {len(playbooks)} < 12')
+    if len(signals)<6: errors.append(f'Observatorio insuficiente: {len(signals)} < 6')
+    if len(indicators)<10: errors.append(f'Indicadores territoriales insuficientes: {len(indicators)} < 10')
     manifest=load('data/localidades/manifest.json')
     total=int(manifest.get('total_entities') or 0)
     if require_national and total<30000: errors.append(f'Catálogo nacional incompleto: {total} entidades < 30000')
     elif total<8000: warnings.append(f'Catálogo de localidades aún no nacional: {total} entidades')
-    return {'projects':len(projects),'obligations':len(obligations),'opportunities':len(opportunities),'support':len(support),'localities':total}
+    terr=load('data/generated/indicadores_territoriales.json'); rent=load('data/generated/renta_ine.json'); bench=load('data/generated/benchmark_territorial.json')
+    if len(items_of(terr))<7000: warnings.append(f'Inteligencia territorial todavía incompleta: {len(items_of(terr))} municipios')
+    if len(items_of(rent))<5000: warnings.append(f'Renta INE todavía incompleta: {len(items_of(rent))} municipios')
+    required_pages=['inteligencia/index.html','comparar/index.html','cartera/index.html','indicadores/index.html']
+    for rp in required_pages:
+        if not (ROOT/rp).exists(): errors.append(f'Falta pantalla v0.7: {rp}')
+    return {'projects':len(projects),'obligations':len(obligations),'opportunities':len(opportunities),'support':len(support),'services':len(services),'playbooks':len(playbooks),'signals':len(signals),'indicator_sources':len(indicators),'territorial_records':len(items_of(terr)),'income_records':len(items_of(rent)),'peer_records':len((bench.get('peers') or {})),'localities':total}
 
 def validate_sources(errors):
     # Curated/sensitive records must retain evidence links.
-    for path in ('data/catalog/oportunidades.json','data/catalog/obligaciones.json'):
+    for path in ('data/catalog/oportunidades.json','data/catalog/obligaciones.json','data/catalog/servicios_comunes.json','data/catalog/observatorio.json'):
         for x in items_of(load(path)):
             src=x.get('source') or x.get('official_source') or x.get('source_url')
             if not src: errors.append(f'{path}: {x.get("id","sin-id")} sin fuente')
