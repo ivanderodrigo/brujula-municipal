@@ -16,6 +16,7 @@ ROOT=Path(__file__).resolve().parents[1]
 CFG=ROOT/'data'/'config'/'novedades_fuentes.json'
 OUT=ROOT/'data'/'generated'/'novedades_diarias.json'
 STATE=ROOT/'data'/'system'/'watch-state.json'
+HEALTH=ROOT/'data'/'generated'/'salud_fuentes.json'
 UA='BrujulaMunicipal/1.1 (+https://brujulamunicipal.eu.org/)'
 
 
@@ -79,11 +80,16 @@ def relevant(title,desc,keywords):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--days',type=int,default=45); ap.add_argument('--max-items',type=int,default=120); a=ap.parse_args()
     cfg=read_json(CFG,{})
+    health=read_json(HEALTH,{'sources':[]})
+    availability={x.get('id'):x.get('available') for x in health.get('sources',[]) if x.get('id')}
     keywords=cfg.get('keywords',[])
     state=read_json(STATE,{'pages':{}})
     threshold=(now().date()-dt.timedelta(days=a.days)).isoformat()
     found=[]; errors=[]; watched=[]
     for src in cfg.get('feeds',[]):
+        if availability.get(src.get('id')) is False:
+            errors.append({'source':src.get('name'),'url':src.get('url'),'error':'Omitida: no disponible en preflight'})
+            continue
         try:
             raw,ctype,final=fetch(src['url'])
             for title,link,desc,date in feed_items(raw,src):
@@ -102,6 +108,9 @@ def main():
         except Exception as e: errors.append({'source':src.get('name'),'url':src.get('url'),'error':str(e)})
     # Hash watch: registra que una página oficial cambió, sin inventar qué significa el cambio.
     for src in cfg.get('watch_pages',[]):
+        if availability.get(src.get('id')) is False:
+            errors.append({'source':src.get('name'),'url':src.get('url'),'error':'Omitida: no disponible en preflight'})
+            continue
         try:
             raw,ctype,final=fetch(src['url'])
             # compacta para evitar cambios por espacios triviales

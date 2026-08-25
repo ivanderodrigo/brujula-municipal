@@ -368,3 +368,86 @@ window.addEventListener('DOMContentLoaded',()=>{sharedUI();globalSearch();window
   };
   window.addEventListener('bm-ready',()=>{BM.decorateChrome();BM.applyDynamicSeo()});
 })();
+
+/* v1.2 · navegación accesible, taxonomía y protección de datos locales */
+(function(){
+  BM.taxonomy=async function(){return this.cache.__taxonomy||(this.cache.__taxonomy=await this.json('data/catalog/taxonomia.json'))};
+  BM.sourceHealth=async function(){return this.jsonOptional('data/generated/salud_fuentes.json',{sources:[],available:0,unavailable:0,critical_unavailable:[]})};
+  BM.repoHealth=async function(){return this.jsonOptional('data/generated/repositorios.json',{repositories:[],errors:[]})};
+  BM.localDataKeys=['bm_profile','bm_prefs','bm_capacity','bm_workspace'];
+  BM.localDataState=function(){
+    const present=this.localDataKeys.filter(k=>{const v=localStorage.getItem(k);return v&&v!=='{}'&&v!=='[]'&&v!=='null'});
+    const lastBackup=localStorage.getItem('bm_last_backup');
+    const lastChange=localStorage.getItem('bm_last_change');
+    return {present,hasData:present.length>0,lastBackup,lastChange};
+  };
+  BM.touchLocalData=function(){localStorage.setItem('bm_last_change',new Date().toISOString())};
+  const _sp=BM.setProfile.bind(BM), _spr=BM.setPrefs.bind(BM), _sc=BM.setCapacity.bind(BM), _sw=BM.setWorkspace.bind(BM);
+  const changed=(a,b)=>{try{return JSON.stringify(a)!==JSON.stringify(b)}catch{return true}};
+  BM.setProfile=function(v){const prev=this.getProfile();_sp(v);if(changed(prev,v)){this.touchLocalData();setTimeout(()=>this.injectLocalDataNotice(false),50)}};
+  BM.setPrefs=function(v){const prev=this.getPrefs();_spr(v);if(changed(prev,v)){this.touchLocalData();setTimeout(()=>this.injectLocalDataNotice(false),50)}};
+  BM.setCapacity=function(v){const prev=this.getCapacity();_sc(v);if(changed(prev,v)){this.touchLocalData();setTimeout(()=>this.injectLocalDataNotice(false),50)}};
+  BM.setWorkspace=function(v){const prev=this.getWorkspace();_sw(v);if(changed(prev,v)){this.touchLocalData();setTimeout(()=>this.injectLocalDataNotice(false),50)}};
+  BM.exportLocalBackup=function(){
+    const payload={schema:'brujula-local-backup',schema_version:1,exported_at:new Date().toISOString(),profile:this.getProfile(),preferences:this.getPrefs(),capacity:this.getCapacity(),workspace:this.getWorkspace()};
+    localStorage.setItem('bm_last_backup',payload.exported_at);
+    this.download('brujula-copia-local-'+payload.exported_at.slice(0,10)+'.json',JSON.stringify(payload,null,2),'application/json;charset=utf-8');
+    document.querySelector('.data-safety-bar')?.remove();document.body.classList.remove('has-safety-bar');
+  };
+  BM.restoreLocalBackup=async function(file){
+    const text=await file.text();let x;
+    try{x=JSON.parse(text)}catch{throw new Error('El archivo no contiene JSON válido.')}
+    if(x?.schema!=='brujula-local-backup')throw new Error('No parece una copia de seguridad de Brújula Municipal.');
+    if(x.profile)_sp(x.profile); if(x.preferences)_spr(x.preferences); if(x.capacity)_sc(x.capacity); if(Array.isArray(x.workspace))_sw(x.workspace);
+    localStorage.setItem('bm_last_backup',new Date().toISOString());localStorage.setItem('bm_last_change',new Date().toISOString());
+    this.refreshProfileUI();return x;
+  };
+  BM.injectLocalDataNotice=function(force=false){
+    const st=this.localDataState(); if(!st.hasData||document.querySelector('.data-safety-bar'))return;
+    const snooze=localStorage.getItem('bm_backup_notice_snooze');
+    if(!force&&snooze){const d=new Date(snooze);if(!isNaN(d)&&Date.now()-d.getTime()<7*86400000)return}
+    let needs=true;
+    if(st.lastBackup&&st.lastChange){needs=new Date(st.lastBackup)<new Date(st.lastChange)}
+    if(st.lastBackup&&!st.lastChange)needs=false;
+    if(!needs&&!force)return;
+    const bar=document.createElement('aside');bar.className='data-safety-bar';bar.setAttribute('role','status');bar.setAttribute('aria-label','Aviso sobre tus datos locales');
+    bar.innerHTML=`<div class="shell data-safety-inner"><div><strong>Protege tu trabajo local.</strong><span> Tus selecciones se guardan solo en este navegador. Si borras sus datos, usas modo privado o cambias de equipo/navegador, pueden perderse.</span></div><div class="data-safety-actions"><button class="btn btn-primary" data-backup-now>Descargar copia</button><a class="btn" href="${this.base()}espacio/#copias">Gestionar copias</a><button class="icon-btn" data-backup-later aria-label="Recordármelo más adelante">×</button></div></div>`;
+    document.body.appendChild(bar);document.body.classList.add('has-safety-bar');
+    bar.querySelector('[data-backup-now]').onclick=()=>this.exportLocalBackup();
+    bar.querySelector('[data-backup-later]').onclick=()=>{localStorage.setItem('bm_backup_notice_snooze',new Date().toISOString());bar.remove();document.body.classList.remove('has-safety-bar')};
+  };
+  BM.navItems=function(){return [
+    ['Inicio','', 'home'],['Explorar','explorar/','proyectos'],['Mi localidad','municipio/','localidad'],['Oportunidades','oportunidades/','oportunidades'],['Proyectos','proyectos/','proyectos'],['Obligaciones','obligaciones/','obligaciones'],['Herramientas','herramientas/','herramientas']
+  ]};
+  BM.moreNavItems=function(){return [
+    ['Inteligencia territorial','inteligencia/'],['Cockpit estratégico','cockpit/'],['Ejecutivo 360','ejecutivo/'],['Decisiones','decisiones/'],['Casos replicables','replicar/'],['Servicios públicos','servicios/'],['Playbooks','playbooks/'],['Observatorio','observatorio/'],['Actualización diaria','actualizacion/'],['Autor y contacto','autor/']
+  ]};
+  BM.rebuildNavigation=function(){
+    const base=this.base(), current=location.pathname.replace(/index\.html$/,'');
+    document.querySelectorAll('.navlinks').forEach(nav=>{
+      nav.setAttribute('aria-label','Navegación principal');
+      nav.innerHTML=this.navItems().map(([label,path,icon])=>{const href=base+path;const active=path?current.includes('/'+path.replace(/\/$/,'')):current.endsWith('/')&&!/\/(explorar|municipio|oportunidades|proyectos|obligaciones|herramientas|inteligencia|cockpit|ejecutivo|decisiones|replicar|servicios|playbooks|observatorio|actualizacion|autor)\//.test(current);return `<a href="${href}"${active?' aria-current="page"':''}><span class="nav-icon" aria-hidden="true">${this.iconSvg(icon)}</span>${label}</a>`}).join('')+`<details class="nav-more"><summary>Más</summary><div class="nav-more-menu">${this.moreNavItems().map(([label,path])=>`<a href="${base+path}">${label}</a>`).join('')}</div></details>`;
+    });
+    document.querySelectorAll('.nav-actions').forEach(actions=>{
+      if(actions.querySelector('.mobile-menu-toggle'))return;
+      const b=document.createElement('button');b.className='mobile-menu-toggle';b.type='button';b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','mobile-site-nav');b.setAttribute('aria-label','Abrir menú');b.innerHTML='<span></span><span></span><span></span>';actions.prepend(b);
+      b.onclick=()=>this.toggleMobileNav();
+    });
+  };
+  BM.toggleMobileNav=function(force){
+    let panel=document.querySelector('#mobile-site-nav');
+    if(!panel){
+      panel=document.createElement('div');panel.id='mobile-site-nav';panel.className='mobile-site-nav';panel.setAttribute('aria-hidden','true');
+      const links=[...this.navItems(),...this.moreNavItems().map(x=>[x[0],x[1],'home'])];
+      panel.innerHTML=`<div class="mobile-site-nav-inner"><div class="mobile-nav-head"><strong>Navegación</strong><button class="icon-btn" aria-label="Cerrar menú" data-close-mobile>×</button></div><nav aria-label="Navegación móvil">${links.map(([label,path])=>`<a href="${this.base()+path}">${label}</a>`).join('')}</nav><div class="mobile-nav-footer"><a class="btn btn-teal" href="${this.base()}municipio/">Abrir Mi localidad</a><a class="btn" href="${this.base()}espacio/">Mi espacio</a></div></div>`;
+      document.body.appendChild(panel);panel.querySelector('[data-close-mobile]').onclick=()=>this.toggleMobileNav(false);panel.onclick=e=>{if(e.target===panel)this.toggleMobileNav(false)};
+    }
+    const open=force===undefined?!panel.classList.contains('open'):force;panel.classList.toggle('open',open);panel.setAttribute('aria-hidden',String(!open));document.body.classList.toggle('nav-open',open);
+    document.querySelectorAll('.mobile-menu-toggle').forEach(b=>{b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú')});
+    if(open)setTimeout(()=>panel.querySelector('a')?.focus(),30);
+  };
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('#mobile-site-nav.open'))BM.toggleMobileNav(false)});
+  const _dc=BM.decorateChrome.bind(BM);
+  BM.decorateChrome=function(){_dc();this.rebuildNavigation();const main=document.querySelector('main');if(main&&!main.id)main.id='main-content';if(!document.querySelector('.skip-link')){const a=document.createElement('a');a.className='skip-link';a.href='#main-content';a.textContent='Saltar al contenido principal';document.body.prepend(a)}};
+  window.addEventListener('bm-ready',()=>{BM.decorateChrome();BM.injectLocalDataNotice(false)});
+})();

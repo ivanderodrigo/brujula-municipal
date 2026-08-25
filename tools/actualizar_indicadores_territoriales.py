@@ -53,8 +53,15 @@ def fetch_zip(filename):
     last=None
     for url in candidates(filename):
         try:
-            req=urllib.request.Request(url,headers={'User-Agent':'BrujulaMunicipal/0.7 (+datos públicos)'})
-            with urllib.request.urlopen(req,timeout=90) as r:
+            # Preflight del recurso concreto: valida que el endpoint responda y empiece
+            # como ZIP antes de descargar decenas de MB.
+            req=urllib.request.Request(url,headers={'User-Agent':'BrujulaMunicipal/1.2 (+datos públicos)','Accept':'application/zip, application/octet-stream, */*'})
+            with urllib.request.urlopen(req,timeout=25) as r:
+                head=r.read(4)
+            if not head.startswith(b'PK'):
+                last=f'{url}: preflight no parece ZIP'; continue
+            req=urllib.request.Request(url,headers={'User-Agent':'BrujulaMunicipal/1.2 (+datos públicos)','Accept':'application/zip, application/octet-stream, */*'})
+            with urllib.request.urlopen(req,timeout=120) as r:
                 data=r.read()
             if not data.startswith(b'PK'):
                 last=f'{url}: respuesta no ZIP ({len(data)} bytes)'; continue

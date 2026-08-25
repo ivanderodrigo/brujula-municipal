@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "policy": "Comprobar disponibilidad y formato mínimo antes de ejecutar cualquier importador. Las fuentes críticas bloquean la actualización si no están disponibles; las de enriquecimiento conservan la última copia válida.",
+  "sources": [
+    {
+      "id": "boe",
+      "name": "AEBOE · API legislación consolidada",
+      "organization": "Agencia Estatal Boletín Oficial del Estado",
+      "url": "https://www.boe.es/datosabiertos/api/legislacion-consolidada?limit=1",
+      "critical": true,
+      "cadence_days": 1,
+      "expect": "json_or_xml",
+      "max_probe_bytes": 4096,
+      "used_by": [
+        "boe"
+      ]
+    },
+    {
+      "id": "bdns",
+      "name": "BDNS/SNPSAP · API convocatorias",
+      "organization": "Intervención General de la Administración del Estado",
+      "url": "https://www.infosubvenciones.es/bdnstrans/api/convocatorias/busqueda?pageSize=1&page=0&vpd=GE",
+      "critical": true,
+      "cadence_days": 1,
+      "expect": "json",
+      "max_probe_bytes": 4096,
+      "used_by": [
+        "bdns"
+      ]
+    },
+    {
+      "id": "miteco-prensa",
+      "name": "MITECO · últimas noticias RSS",
+      "organization": "MITECO",
+      "url": "https://www.miteco.gob.es/content/miteco/es/es/prensa/ultimas-noticias.newsfeed.rss.xml",
+      "critical": false,
+      "cadence_days": 1,
+      "expect": "xml",
+      "max_probe_bytes": 4096,
+      "used_by": [
+        "news"
+      ]
+    },
+    {
+      "id": "femp-actualidad",
+      "name": "FEMP · actualidad",
+      "organization": "FEMP",
+      "url": "https://www.femp.es/feed/",
+      "critical": false,
+      "cadence_days": 1,
+      "expect": "xml",
+      "max_probe_bytes": 4096,
+      "used_by": [
+        "news"
+      ]
+    },
+    {
+      "id": "redes-noticias",
+      "name": "Red.es · noticias",
+      "organization": "Red.es",
+      "url": "https://www.red.es/es/actualidad/noticias",
+      "critical": false,
+      "cadence_days": 1,
+      "expect": "html",
+      "max_probe_bytes": 4096,
+      "used_by": [
+        "news"
+      ]
+    },
+    {
+      "id": "pae-portal",
+      "name": "PAe · Portal de Administración Electrónica",
+      "organization": "Administración General del Estado",
+      "url": "https://administracionelectronica.gob.es/ctt/pae",
+      "critical": false,
+      "cadence_days": 1,
+      "expect": "html",
+      "max_probe_bytes": 4096,
+      "used_by": [
+        "news"
+      ]
+    },
+    {
+      "id": "ine-renta",
+      "name": "INE · Atlas de Distribución de Renta de los Hogares",
+      "organization": "Instituto Nacional de Estadística",
+      "url": "https://www.ine.es/jaxiT3/files/t/csv_bdsc/31241.csv",
+      "critical": false,
+      "cadence_days": 180,
+      "expect": "csv",
+      "max_probe_bytes": 4096,
+      "used_by": [
+        "income"
+      ]
+    },
+    {
+      "id": "cnig-ngmep",
+      "name": "CNIG · Nomenclátor Geográfico de Municipios y Entidades de Población",
+      "organization": "Instituto Geográfico Nacional / CNIG",
+      "url": "https://centrodedescargas.cnig.es/CentroDescargas/detalleArchivo?sec=9000004",
+      "critical": false,
+      "cadence_days": 30,
+      "expect": "html",
+      "max_probe_bytes": 4096,
+      "used_by": [
+        "localities"
+      ]
+    },
+    {
+      "id": "osm-entidades",
+      "name": "OSM España · espejo de ENTIDADES",
+      "organization": "OSM España",
+      "url": "https://raw.githubusercontent.com/OSM-es/validador-ine/main/ENTIDADES.2025.csv",
+      "critical": false,
+      "cadence_days": 7,
+      "expect": "csv",
+      "max_probe_bytes": 4096,
+      "used_by": [
+        "localities",
+        "repositories"
+      ]
+    },
+    {
+      "id": "miteco-demografia",
+      "name": "MITECO · datos demográficos del reto demográfico",
+      "organization": "MITECO",
+      "url": "https://www.miteco.gob.es/es/cartografia-y-sig/ide/descargas/reto-demografico/datos-demograficos.html",
+      "critical": false,
+      "cadence_days": 180,
+      "expect": "html",
+      "max_probe_bytes": 4096,
+      "used_by": [
+        "territorial"
+      ]
+    },
+    {
+      "id": "miteco-servicios",
+      "name": "MITECO · datos de servicios",
+      "organization": "MITECO",
+      "url": "https://www.miteco.gob.es/es/cartografia-y-sig/ide/descargas/reto-demografico/datos-servicios.html",
+      "critical": false,
+      "cadence_days": 180,
+      "expect": "html",
+      "max_probe_bytes": 4096,
+      "used_by": [
+        "territorial"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+VALIDACIÓN BRÚJULA MUNICIPAL
+{
+  "projects": 175,
+  "obligations": 27,
+  "opportunities": 9,
+  "support": 9,
+  "services": 13,
+  "playbooks": 15,
+  "signals": 9,
+  "indicator_sources": 12,
+  "territorial_records": 0,
+  "income_records": 0,
+  "peer_records": 0,
+  "localities": 16
+}
+AVISO: Catálogo de localidades aún no nacional: 16 entidades
+AVISO: Inteligencia territorial todavía incompleta: 0 municipios
+AVISO: Renta INE todavía incompleta: 0 municipios
+
+RESULTADO: PUBLICABLE

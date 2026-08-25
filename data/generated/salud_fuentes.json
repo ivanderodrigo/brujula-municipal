@@ -1,0 +1,9 @@
+{
+  "generated_at": null,
+  "policy": "El preflight se ejecutará antes de la próxima actualización automática.",
+  "total": 0,
+  "available": 0,
+  "unavailable": 0,
+  "critical_unavailable": [],
+  "sources": []
+}

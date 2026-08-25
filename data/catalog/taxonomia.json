@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "principle": "La clasificación organiza contenidos por necesidad municipal además de por tipo documental. Un contenido puede pertenecer a varias áreas.",
+  "areas": [
+    {"id":"gobierno-digital","title":"Gobierno digital","short":"Trámites, registro, expediente, firma, archivo y atención digital.","terms":["administracion","administración","sede","registro","expediente","firma","archivo","interoperabilidad","notifica","face","sir"]},
+    {"id":"seguridad-cumplimiento","title":"Seguridad y cumplimiento","short":"ENS, ciberseguridad, protección de datos, accesibilidad y continuidad.","terms":["ens","ciberseguridad","seguridad","rgpd","proteccion de datos","protección de datos","accesibilidad","backup","mfa","continuidad"]},
+    {"id":"territorio-demografia","title":"Territorio y población","short":"Reto demográfico, conectividad territorial, movilidad, arraigo y acceso a servicios.","terms":["despoblacion","despoblación","reto demografico","reto demográfico","territorio","poblacion","población","conectividad","movilidad","arraigo","acceso a servicios"]},
+    {"id":"infraestructuras-servicios","title":"Infraestructuras y servicios","short":"Agua, alumbrado, residuos, edificios, caminos y servicios esenciales.","terms":["agua","abastecimiento","saneamiento","alumbrado","residuos","edificios","caminos","infraestructura","telelectura","servicios"]},
+    {"id":"energia-clima","title":"Energía y resiliencia","short":"Eficiencia, autoconsumo, comunidades energéticas, clima y emergencias.","terms":["energia","energía","eficiencia","autoconsumo","fotovolta","clima","inundacion","inundación","incendio","resiliencia"]},
+    {"id":"economia-turismo","title":"Economía, turismo y patrimonio","short":"Comercio, emprendimiento, turismo, cultura, patrimonio y economía local.","terms":["turismo","patrimonio","cultura","comercio","emprendimiento","empresa","empleo","rutas","museo"]},
+    {"id":"vivienda-cuidados","title":"Vivienda y cuidados","short":"Vivienda, mayores, infancia, cuidados, servicios sociales y acogida.","terms":["vivienda","mayores","cuidados","servicios sociales","dependencia","infancia","juventud","acogida","teleasistencia"]},
+    {"id":"datos-innovacion","title":"Datos e innovación","short":"Datos, IA, sensores, IoT, automatización y nuevos modelos de gestión.","terms":["datos","dato","ia","inteligencia artificial","sensor","iot","lorawan","automatizacion","automatización","analitica","analítica"]}
+  ],
+  "content_types": [
+    {"id":"proyecto","title":"Proyectos","description":"Qué se puede ejecutar."},
+    {"id":"oportunidad","title":"Financiación","description":"Cómo puede financiarse."},
+    {"id":"obligacion","title":"Obligaciones","description":"Qué debe cumplirse o revisarse."},
+    {"id":"servicio","title":"Servicios existentes","description":"Qué conviene reutilizar antes de comprar."},
+    {"id":"playbook","title":"Playbooks","description":"Cómo recorrer un problema completo."},
+    {"id":"caso","title":"Casos reales","description":"Qué han hecho otros territorios."}
+  ]
+}

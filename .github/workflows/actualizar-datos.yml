@@ -26,7 +26,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
@@ -37,6 +37,19 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+
+      - name: Calcular clave semanal de caché
+        id: cache-key
+        shell: bash
+        run: echo "week=$(date -u +'%G-W%V')" >> "$GITHUB_OUTPUT"
+
+      - name: Recuperar caché de fuentes y repositorios
+        uses: actions/cache@v4
+        with:
+          path: tools/cache
+          key: brujula-source-cache-${{ runner.os }}-v2-${{ steps.cache-key.outputs.week }}
+          restore-keys: |
+            brujula-source-cache-${{ runner.os }}-v2-
 
       - name: Actualizar y validar
         env:

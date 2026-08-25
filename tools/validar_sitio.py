@@ -79,7 +79,7 @@ def validate_counts(errors, warnings, require_national=False):
     terr=load('data/generated/indicadores_territoriales.json'); rent=load('data/generated/renta_ine.json'); bench=load('data/generated/benchmark_territorial.json')
     if len(items_of(terr))<7000: warnings.append(f'Inteligencia territorial todavía incompleta: {len(items_of(terr))} municipios')
     if len(items_of(rent))<5000: warnings.append(f'Renta INE todavía incompleta: {len(items_of(rent))} municipios')
-    required_pages=['inteligencia/index.html','comparar/index.html','cartera/index.html','indicadores/index.html','actualizacion/index.html','cockpit/index.html','ejecutivo/index.html','decisiones/index.html','replicar/index.html','presentacion/index.html','autor/index.html']
+    required_pages=['explorar/index.html','inteligencia/index.html','comparar/index.html','cartera/index.html','indicadores/index.html','actualizacion/index.html','cockpit/index.html','ejecutivo/index.html','decisiones/index.html','replicar/index.html','presentacion/index.html','autor/index.html']
     for rp in required_pages:
         if not (ROOT/rp).exists(): errors.append(f'Falta pantalla v0.7: {rp}')
     return {'projects':len(projects),'obligations':len(obligations),'opportunities':len(opportunities),'support':len(support),'services':len(services),'playbooks':len(playbooks),'signals':len(signals),'indicator_sources':len(indicators),'territorial_records':len(items_of(terr)),'income_records':len(items_of(rent)),'peer_records':len((bench.get('peers') or {})),'localities':total}
@@ -137,6 +137,23 @@ def validate_seo(errors,warnings):
     for x in items_of(daily):
         if x.get('review_status')!='pending': errors.append(f'Novedad automática no pending: {x.get("id")}')
 
+
+def validate_architecture(errors,warnings):
+    required=['data/config/fuentes_actualizacion.json','data/config/repositorios_fuentes.json','data/catalog/taxonomia.json','tools/comprobar_fuentes.py','tools/sincronizar_repositorios.py','tools/generar_accesibilidad.py']
+    for rp in required:
+        if not (ROOT/rp).exists(): errors.append(f'Falta componente v1.2: {rp}')
+    for p in ROOT.rglob('__pycache__'):
+        warnings.append(f'Residuo local no publicable: {p.relative_to(ROOT)}')
+    for p in ROOT.rglob('*.html'):
+        if any(part.startswith('.') for part in p.relative_to(ROOT).parts): continue
+        txt=p.read_text(encoding='utf-8',errors='ignore')
+        if 'class="skip-link"' not in txt: errors.append(f'Accesibilidad: sin skip link en {p.relative_to(ROOT)}')
+        if not re.search(r'<main[^>]*\bid=["\'][^"\']+["\']',txt,re.I): errors.append(f'Accesibilidad: main sin destino en {p.relative_to(ROOT)}')
+    cfg=load('data/config/fuentes_actualizacion.json')
+    ids={x.get('id') for x in cfg.get('sources',[])}
+    for critical in ('boe','bdns'):
+        if critical not in ids: errors.append(f'Preflight: falta fuente crítica {critical}')
+
 def validate_no_backend(errors):
     forbidden=[r'localhost:\d+',r'127\.0\.0\.1:\d+',r'api[_-]?key\s*[:=]',r'supabase\.co',r'cloudflare.*workers']
     for p in list(ROOT.rglob('*.html'))+list(ROOT.rglob('*.js')):
@@ -154,6 +171,7 @@ def main():
     validate_sources(errors)
     validate_html(errors)
     validate_seo(errors,warnings)
+    validate_architecture(errors,warnings)
     validate_no_backend(errors)
     print('VALIDACIÓN BRÚJULA MUNICIPAL')
     print(json.dumps(counts,ensure_ascii=False,indent=2))

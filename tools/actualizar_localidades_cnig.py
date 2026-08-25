@@ -25,6 +25,7 @@ PROVINCES_FILE=ROOT/'data'/'catalog'/'provincias.json'
 CACHE=ROOT/'tools'/'cache'; CACHE.mkdir(parents=True,exist_ok=True)
 CACHE_ZIP=CACHE/'BD_MUNICIPIOS-ENTIDADES.ZIP'
 CACHE_MIRROR=CACHE/'ENTIDADES.2025.csv'
+REPO_MIRROR=ROOT/'tools'/'cache'/'repos'/'osm-validador-ine'/'ENTIDADES.2025.csv'
 SOURCE_PAGE='https://centrodedescargas.cnig.es/CentroDescargas/detalleArchivo?sec=9000004'
 OFFICIAL_DETAIL_PAGE=SOURCE_PAGE
 MIRROR_URLS=[
@@ -83,6 +84,13 @@ def fetch_official_zip():
 
 def fetch_mirror_csv():
     import time
+    # Primero reutiliza el snapshot sincronizado del repositorio externo. Así evitamos
+    # descargas redundantes y podemos auditar el commit exacto usado por el pipeline.
+    if REPO_MIRROR.exists() and REPO_MIRROR.stat().st_size>1_000_000:
+        print('Usando snapshot sincronizado OSM-es:',REPO_MIRROR)
+        b=REPO_MIRROR.read_bytes()
+        CACHE_MIRROR.write_bytes(b)
+        return b
     stale=None
     if CACHE_MIRROR.exists() and CACHE_MIRROR.stat().st_size>1_000_000:
         stale=CACHE_MIRROR.read_bytes()

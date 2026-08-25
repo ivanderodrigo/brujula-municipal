@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "policy": "Los repositorios externos se sincronizan en caché, no se copian completos al repositorio público. Se registra commit remoto, fecha y ficheros utilizados.",
+  "repositories": [
+    {
+      "id": "osm-validador-ine",
+      "name": "OSM España · validador INE",
+      "git_url": "https://github.com/OSM-es/validador-ine.git",
+      "branch": "main",
+      "cadence_days": 7,
+      "critical": false,
+      "files": ["ENTIDADES.2025.csv"],
+      "purpose": "Fallback del nomenclátor de entidades de población cuando la distribución directa de CNIG no está disponible."
+    }
+  ]
+}

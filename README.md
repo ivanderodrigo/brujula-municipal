@@ -89,3 +89,6 @@ El workflow de GitHub puede actualizar el repositorio y cualquier hosting estát
 - Página `/actualizacion/` de auditoría diaria.
 - Sitemap, robots, canonicales, Open Graph, Twitter Cards y JSON-LD generados automáticamente.
 - Más de 200 fichas estáticas indexables para mejorar descubrimiento orgánico.
+
+## v1.2
+La v1.2 añade rediseño visual integral, `/explorar/`, preflight de fuentes, sincronización de repositorios externos en caché, transparencia de salud de fuentes, copia/restauración de datos locales y refuerzo automático de accesibilidad. Ver `NOVEDADES_v12.md` y `ACTUALIZACION_ROBUSTA_V12.md`.

@@ -1,9 +1,12 @@
 {
   "ok": true,
-  "checked_at": "2026-08-25T15:35:12+00:00",
+  "checked_at": "2026-08-25T18:52:37+00:00",
   "pipeline": "static-offline",
   "mode": "validate-only",
-  "sources_run": [],
+  "sources_run": [
+    "seo",
+    "accessibility"
+  ],
   "data_status": {
     "localities_ngmep": {
       "ok": false,
@@ -19,5 +22,12 @@
     },
     "updated_at": null
   },
+  "source_health": {
+    "total": 0,
+    "available": 0,
+    "unavailable": 0,
+    "critical_unavailable": []
+  },
+  "repositories_checked": 0,
   "note": "Generado automáticamente. Los visitantes no ejecutan consultas a las fuentes oficiales."
 }
