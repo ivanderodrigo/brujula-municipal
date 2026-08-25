@@ -1,0 +1,180 @@
+[
+  {
+    "id": "agua",
+    "title": "Gestionar mejor el agua",
+    "question": "¿Qué problema tienes?",
+    "choices": [
+      [
+        "fugas",
+        "Pérdidas o fugas"
+      ],
+      [
+        "telelectura",
+        "Lecturas manuales"
+      ],
+      [
+        "depositos",
+        "Depósitos sin supervisión"
+      ],
+      [
+        "agua",
+        "Calidad o control"
+      ]
+    ]
+  },
+  {
+    "id": "ciberseguridad",
+    "title": "Mejorar ciberseguridad",
+    "question": "¿Qué necesitas priorizar?",
+    "choices": [
+      [
+        "ens",
+        "Cumplir ENS"
+      ],
+      [
+        "backup",
+        "Copias y recuperación"
+      ],
+      [
+        "mfa",
+        "Proteger cuentas"
+      ],
+      [
+        "inventario",
+        "Saber qué tengo"
+      ]
+    ]
+  },
+  {
+    "id": "energia",
+    "title": "Reducir gasto energético",
+    "question": "¿Dónde quieres actuar?",
+    "choices": [
+      [
+        "alumbrado",
+        "Alumbrado"
+      ],
+      [
+        "autoconsumo",
+        "Autoconsumo"
+      ],
+      [
+        "edificios",
+        "Edificios públicos"
+      ]
+    ]
+  },
+  {
+    "id": "digitalizacion",
+    "title": "Digitalizar el ayuntamiento",
+    "question": "¿Qué frena más el trabajo?",
+    "choices": [
+      [
+        "sede",
+        "Trámites"
+      ],
+      [
+        "automatizacion",
+        "Tareas repetitivas"
+      ],
+      [
+        "archivo",
+        "Archivo"
+      ],
+      [
+        "web",
+        "Web"
+      ]
+    ]
+  },
+  {
+    "id": "conectividad",
+    "title": "Mejorar conectividad",
+    "question": "¿Para qué la necesitas?",
+    "choices": [
+      [
+        "wifi",
+        "Wi-Fi"
+      ],
+      [
+        "lorawan",
+        "Sensores/IoT"
+      ]
+    ]
+  },
+  {
+    "id": "turismo",
+    "title": "Impulsar turismo y patrimonio",
+    "question": "¿Qué quieres activar?",
+    "choices": [
+      [
+        "rutas",
+        "Rutas y audioguías"
+      ],
+      [
+        "patrimonio",
+        "Patrimonio digital"
+      ]
+    ]
+  },
+  {
+    "id": "servicios",
+    "title": "Mejorar servicios ciudadanos",
+    "question": "¿Qué servicio?",
+    "choices": [
+      [
+        "ciudadania",
+        "Avisos e incidencias"
+      ],
+      [
+        "residuos",
+        "Residuos"
+      ]
+    ]
+  },
+  {
+    "id": "vivienda",
+    "title": "Vivienda y atraer población",
+    "question": "¿Por dónde empezar?",
+    "choices": [
+      [
+        "vivienda",
+        "Inventario de vivienda"
+      ],
+      [
+        "despoblacion",
+        "Proyectos contra despoblación"
+      ]
+    ]
+  },
+  {
+    "id": "emprendimiento",
+    "title": "Favorecer emprendimiento",
+    "question": "¿Qué recurso?",
+    "choices": [
+      [
+        "emprendimiento",
+        "Coworking/teletrabajo"
+      ],
+      [
+        "conectividad",
+        "Conectividad"
+      ]
+    ]
+  },
+  {
+    "id": "movilidad",
+    "title": "Mejorar movilidad",
+    "question": "¿Qué necesidad?",
+    "choices": [
+      [
+        "movilidad",
+        "Transporte a demanda"
+      ],
+      [
+        "mayores",
+        "Acceso a servicios para mayores"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "ok": false,
+  "checked_at": null,
+  "pipeline": "static-offline",
+  "mode": null,
+  "sources_run": [],
+  "note": "Pendiente de la primera ejecución automática o local."
+}

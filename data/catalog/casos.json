@@ -1,0 +1,89 @@
+[
+  {
+    "id": "el-hoyo-telecontrol",
+    "municipality": "El Hoyo",
+    "province": "Ciudad Real",
+    "population": 191,
+    "population_note": "Referencia 2023 del piloto",
+    "category": "agua",
+    "project": "Tratamiento, filtración, desinfección y telecontrol",
+    "cost": 175000,
+    "cost_note": "Importe conjunto anunciado para El Hoyo y Solanilla del Tamaral",
+    "funding": "Inversión pública anunciada por Castilla-La Mancha",
+    "result": "Actuación anunciada; no se presenta como resultado ejecutado.",
+    "replicable": "Separar tratamiento, control y telemetría; revisar titularidad/operación antes de diseñar el proyecto.",
+    "source": "https://iaclm.es/el-gobierno-de-garcia-page-resolvera-el-problema-historico-de-abastecimiento-de-agua-en-el-hoyo-y-en-solanilla-del-tamaral-con-una-inversion-de-175-000-euros/"
+  },
+  {
+    "id": "uharte-arakil-agua",
+    "municipality": "Uharte Arakil",
+    "province": "Navarra",
+    "category": "agua",
+    "project": "Telegestión, sectorización y contadores domiciliarios con telelectura",
+    "cost": 216947.36,
+    "funding": "PRTR 195.252,62 € + Comunidad Foral 21.694,74 €",
+    "result": "Actuación seleccionada en el reparto del PERTE de digitalización del ciclo del agua.",
+    "replicable": "Buen patrón para pueblos que necesitan unir telelectura y sectorización en un mismo proyecto.",
+    "source": "https://www.miteco.gob.es/content/dam/miteco/es/agua/temas/pertes/conferencia-sectorial/2024-12-09-Informe-Actuaciones-CCAA-C5I3.pdf"
+  },
+  {
+    "id": "arantza-agua",
+    "municipality": "Arantza",
+    "province": "Navarra",
+    "category": "agua",
+    "project": "Telegestión, sectorización y contadores con telelectura",
+    "cost": 165204.15,
+    "funding": "PRTR 148.683,74 € + Comunidad Foral 16.520,41 €",
+    "result": "Actuación seleccionada en el reparto del PERTE.",
+    "replicable": "Ejemplo de alcance contenido para digitalizar medición y red en un municipio pequeño.",
+    "source": "https://www.miteco.gob.es/content/dam/miteco/es/agua/temas/pertes/conferencia-sectorial/2024-12-09-Informe-Actuaciones-CCAA-C5I3.pdf"
+  },
+  {
+    "id": "lesaka-agua",
+    "municipality": "Lesaka",
+    "province": "Navarra",
+    "category": "agua",
+    "project": "Contadores de agua inteligentes y telegestión",
+    "cost": 389778.11,
+    "funding": "PRTR 350.800,30 € + Comunidad Foral 38.977,81 €",
+    "result": "Actuación seleccionada en el reparto del PERTE.",
+    "replicable": "Permite comparar un proyecto más amplio de telelectura con otros de menor coste.",
+    "source": "https://www.miteco.gob.es/content/dam/miteco/es/agua/temas/pertes/conferencia-sectorial/2024-12-09-Informe-Actuaciones-CCAA-C5I3.pdf"
+  },
+  {
+    "id": "lekunberri-agua",
+    "municipality": "Lekunberri",
+    "province": "Navarra",
+    "category": "agua",
+    "project": "Sectorización de red e instalación de contadores con telelectura",
+    "cost": 256735.99,
+    "funding": "PRTR 231.062,39 € + Comunidad Foral 25.673,60 €",
+    "result": "Actuación seleccionada en el reparto del PERTE.",
+    "replicable": "Combina dos capas que suelen tener más valor juntas: saber dónde se pierde y medir consumos.",
+    "source": "https://www.miteco.gob.es/content/dam/miteco/es/agua/temas/pertes/conferencia-sectorial/2024-12-09-Informe-Actuaciones-CCAA-C5I3.pdf"
+  },
+  {
+    "id": "soto-real-alumbrado",
+    "municipality": "Soto del Real",
+    "province": "Madrid",
+    "category": "energia",
+    "project": "Reforma integral de alumbrado exterior mediante ESE",
+    "cost": 2032148,
+    "funding": "Modelo ESE tutelado por IDAE",
+    "result": "3.277 puntos de luz; consumo final previsto 404.580 kWh/año frente a 1.982.472 kWh/año inicial; ahorro energético indicado por IDAE: 80 %.",
+    "replicable": "El modelo contractual es complejo, pero sirve para estudiar coste total, ahorro y mantenimiento como una sola decisión.",
+    "source": "https://www.idae.es/conozcanos/proyectos-de-excelencia/reforma-de-alumbrado-exterior-soto-del-real"
+  },
+  {
+    "id": "cordoba-municipios-smart",
+    "municipality": "Diputación de Córdoba / varios municipios",
+    "province": "Córdoba",
+    "category": "digitalizacion",
+    "project": "Municipios Cordobeses Inteligentes y Sostenibles",
+    "cost": 4847608.63,
+    "funding": "69 % Red.es/FEDER + 31 % Diputación",
+    "result": "Plataforma, open data y sensorización de energía, residuos, medioambiente y aguas.",
+    "replicable": "Ejemplo de por qué un pequeño municipio puede beneficiarse de servicios y plataformas supramunicipales.",
+    "source": "https://www.red.es/es/iniciativas/proyectos/plan-nacional-de-ciudades-inteligentes/2%C2%AA-convocatoria/cordoba"
+  }
+]
