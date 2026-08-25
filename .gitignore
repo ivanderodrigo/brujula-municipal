@@ -1,0 +1,9 @@
+tools/cache/*.ZIP
+tools/cache/*.zip
+tools/cache/*.json
+tools/__pycache__/
+*.pyc
+data/generated/raw_bdns/
+data/generated/boe_raw/
+logs/*.txt
+tools/cache/
