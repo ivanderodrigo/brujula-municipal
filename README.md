@@ -67,3 +67,25 @@ Solo inteligencia territorial:
 La web continúa siendo HTML + CSS + JS + JSON. No necesita servidor, SQL, funciones serverless, API de IA ni tarjeta bancaria.
 
 El workflow de GitHub puede actualizar el repositorio y cualquier hosting estático puede servirlo.
+
+
+## v0.9
+- Cockpit estratégico
+- Página de autor y contacto
+- Configuración del LinkedIn del autor en `data/catalog/author.json`
+
+
+## Brújula Municipal v1.0
+- Motor de prioridades explicable (`/decisiones/`)
+- Casos reales replicables (`/replicar/`)
+- Matching dinámico proyecto → financiación
+- Modo presentación institucional (`/presentacion/`)
+- Paquete institucional descargable
+- LinkedIn del autor: https://www.linkedin.com/in/ivanrodrigo/
+
+## v1.1 · actualización diaria + SEO
+- Radar BDNS y BOE diario.
+- Novedades oficiales automáticas MITECO/FEMP y vigilancia Red.es/PAe.
+- Página `/actualizacion/` de auditoría diaria.
+- Sitemap, robots, canonicales, Open Graph, Twitter Cards y JSON-LD generados automáticamente.
+- Más de 200 fichas estáticas indexables para mejorar descubrimiento orgánico.

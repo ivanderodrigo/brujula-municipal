@@ -14,7 +14,7 @@ STATE=ROOT/'data'/'system'/'update-state.json'
 HEARTBEAT=ROOT/'data'/'system'/'last-check.json'
 LOG=ROOT/'logs'/'ultima-actualizacion.txt'
 
-DEFAULT_CADENCE={'localities':30,'bdns':1,'boe':1,'territorial':180,'income':180}
+DEFAULT_CADENCE={'localities':30,'bdns':1,'boe':1,'news':1,'territorial':180,'income':180}
 
 def now_utc(): return dt.datetime.now(dt.timezone.utc)
 def load_json(path,default):
@@ -73,6 +73,7 @@ def main():
     ap.add_argument('--localities-days',type=int,default=DEFAULT_CADENCE['localities'])
     ap.add_argument('--bdns-days',type=int,default=DEFAULT_CADENCE['bdns'])
     ap.add_argument('--boe-days',type=int,default=DEFAULT_CADENCE['boe'])
+    ap.add_argument('--news-days',type=int,default=DEFAULT_CADENCE['news'])
     ap.add_argument('--territorial-days',type=int,default=DEFAULT_CADENCE['territorial'])
     ap.add_argument('--income-days',type=int,default=DEFAULT_CADENCE['income'])
     ap.add_argument('--bdns-window',type=int,default=120)
@@ -87,12 +88,16 @@ def main():
                 run('Radar BDNS', [ROOT/'tools'/'actualizar_bdns.py','--days',str(a.bdns_window),'--max-details','300']); mark(state,'bdns'); ran.append('bdns')
             if due(state,'boe',a.boe_days,force):
                 run('Radar BOE', [ROOT/'tools'/'actualizar_boe.py','--days',str(a.boe_window),'--max-details','180']); mark(state,'boe'); ran.append('boe')
+            if due(state,'news',a.news_days,force):
+                ok=run_optional('Novedades oficiales MITECO/FEMP + páginas vigiladas', [ROOT/'tools'/'actualizar_novedades.py','--days','45','--max-items','120']); mark(state,'news',ok=ok,error=None if ok else 'No actualizado'); ran.append('news')
             if due(state,'territorial',a.territorial_days,force):
                 ok=run_optional('Indicadores territoriales MITECO', [ROOT/'tools'/'actualizar_indicadores_territoriales.py']); mark(state,'territorial',ok=ok,error=None if ok else 'No actualizado; ver source_status'); ran.append('territorial')
             if due(state,'income',a.income_days,force):
                 ok=run_optional('Renta municipal INE', [ROOT/'tools'/'actualizar_renta_ine.py']); mark(state,'income',ok=ok,error=None if ok else 'No actualizado'); ran.append('income')
             if 'territorial' in ran or 'income' in ran or force:
                 run('Benchmark territorial', [ROOT/'tools'/'generar_benchmark_territorial.py'])
+        # SEO técnico se regenera en cada ejecución para refrescar metadatos, sitemap y fichas indexables.
+        run('SEO técnico y sitemap', [ROOT/'tools'/'generar_seo.py']); ran.append('seo')
         # In production automation we require the national catalogue.
         require_national = os.environ.get('BRUJULA_REQUIRE_NATIONAL','0')=='1'
         cmd=[ROOT/'tools'/'validar_sitio.py']+(['--require-national'] if require_national else [])

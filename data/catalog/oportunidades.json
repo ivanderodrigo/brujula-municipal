@@ -1,5 +1,33 @@
 [
   {
+    "id": "reto-demografico-2026-2029",
+    "title": "Proyectos innovadores contra la despoblación · convocatoria 2026–2029",
+    "type": "subvencion",
+    "status": "announced",
+    "status_label": "Anunciada por Consejo de Ministros · pendiente de publicación de convocatoria",
+    "organization": "MITECO · Secretaría General para el Reto Demográfico",
+    "scope": "España",
+    "topics": [
+      "despoblacion",
+      "innovacion",
+      "emprendimiento",
+      "vivienda",
+      "movilidad",
+      "servicios",
+      "resiliencia",
+      "bioeconomia"
+    ],
+    "beneficiary_types": [
+      "local_entity"
+    ],
+    "population_rules": [],
+    "budget_total": 80000000,
+    "summary": "El Consejo de Ministros autorizó el 25/08/2026 una convocatoria de hasta 80 M€ para proyectos promovidos por entidades locales entre 2026 y 2029, orientados a innovación territorial, reactivación socioeconómica y reto demográfico.",
+    "source": "https://www.miteco.gob.es/es/prensa/ultimas-noticias/2026/agosto/el-gobierno-duplica-hasta-los-80-millones-de-euros-las-ayudas-a-.html",
+    "verified": "2026-08-25",
+    "warning": "La autorización no equivale a convocatoria abierta. Hay que esperar la publicación oficial y comprobar bases, plazos, beneficiarios y criterios concretos."
+  },
+  {
     "id": "agenda2030-2026",
     "title": "Agenda 2030 en Entidades Locales · convocatoria 2026",
     "type": "subvencion",

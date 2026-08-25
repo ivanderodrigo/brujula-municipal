@@ -44,7 +44,8 @@ const BM={
  closeSelector(){document.querySelector('#municipality-overlay')?.classList.remove('open')},
  async services(){return this.cache.__services||(this.cache.__services=await this.json('data/catalog/servicios_comunes.json'))},
  async playbooks(){return this.cache.__playbooks||(this.cache.__playbooks=await this.json('data/catalog/playbooks.json'))},
- async signals(){return this.cache.__signals||(this.cache.__signals=await this.json('data/catalog/observatorio.json'))},
+ async signals(){if(this.cache.__signals)return this.cache.__signals;const curated=await this.json('data/catalog/observatorio.json');const gen=await this.jsonOptional('data/generated/novedades_diarias.json',{items:[]});return this.cache.__signals=[...curated,...((gen&&gen.items)||[])]},
+ async dailyNews(){return this.jsonOptional('data/generated/novedades_diarias.json',{items:[],watched_pages:[],errors:[]})},
  getCapacity(){try{return JSON.parse(localStorage.getItem('bm_capacity')||'{}')}catch{return {}}},
  setCapacity(x){localStorage.setItem('bm_capacity',JSON.stringify(x||{}))},
  getWorkspace(){try{return JSON.parse(localStorage.getItem('bm_workspace')||'[]')}catch{return []}},
@@ -74,3 +75,296 @@ async function renderMunicipalities(ov,q){const out=ov.querySelector('.municipal
 function sharedUI(){BM.refreshProfileUI();document.querySelectorAll('[data-workspace-count]').forEach(x=>x.textContent=BM.getWorkspace().length);document.querySelectorAll('[data-open-municipality]').forEach(b=>b.onclick=()=>BM.openSelector());document.querySelector('[data-close-municipality]')?.addEventListener('click',()=>BM.closeSelector());const ov=document.querySelector('#municipality-overlay');ov?.addEventListener('click',e=>{if(e.target===ov)BM.closeSelector()});let timer;ov?.querySelector('input')?.addEventListener('input',e=>{clearTimeout(timer);timer=setTimeout(()=>renderMunicipalities(ov,e.target.value),120)})}
 async function globalSearch(){const form=document.querySelector('[data-global-search]');if(!form)return;const out=document.querySelector('[data-search-results]');const [ps,os,ls,cs,ss,sv,pb,sg,ind]=await Promise.all([BM.json('data/catalog/proyectos.json'),BM.opportunities(),BM.obligations(),BM.json('data/catalog/casos.json'),BM.support(),BM.services(),BM.playbooks(),BM.signals(),BM.indicatorSources()]);const all=[...(ind.items||[]).map(x=>({...x,_type:'Indicador territorial',_href:'indicadores/'})),...ps.map(x=>({...x,_type:'Proyecto',_href:'proyectos/detalle.html?id='+x.id})),...os.map(x=>({...x,_type:x.review_status==='pending'?'Radar BDNS':'Oportunidad',_href:'oportunidades/detalle.html?id='+x.id})),...ls.map(x=>({...x,_type:x.review_status==='pending'?'Radar BOE':'Obligación',_href:'obligaciones/detalle.html?id='+x.id})),...ss.map(x=>({...x,_type:'Apoyo',_href:'apoyo/?id='+x.id})),...sv.map(x=>({...x,_type:'Servicio existente',_href:'servicios/'})),...pb.map(x=>({...x,_type:'Playbook',_href:'playbooks/'})),...sg.map(x=>({...x,_type:'Observatorio',_href:'observatorio/'})),...cs.map(x=>({...x,title:`${x.municipality}: ${x.project}`,_type:'Caso',_href:'casos/detalle.html?id='+x.id}))];form.addEventListener('submit',e=>{e.preventDefault();const q=BM.normalize(form.querySelector('input').value);if(!q){out.innerHTML='';return}const synonyms={farolas:'alumbrado',farola:'alumbrado',contadores:'telelectura',hackers:'ciberseguridad',fugas:'agua',subvencion:'financiacion',subvenciones:'financiacion',pueblo:'municipio',papeles:'administracion',wifi:'conectividad',casa:'vivienda',ia:'ia',inteligencia:'ia',facturas:'face',registro:'sir',notificaciones:'notifica',contratar:'contratacion',contratos:'contratacion',datos:'datos'};const words=q.split(/\s+/).map(w=>synonyms[w]||w);const scored=all.map(x=>{const text=BM.normalize(JSON.stringify(x));return {x,s:words.reduce((a,w)=>a+(text.includes(w)?1:0),0)}}).filter(z=>z.s).sort((a,b)=>b.s-a.s).slice(0,14);out.innerHTML=scored.length?scored.map(z=>`<a class="search-result" href="${BM.base()+z.x._href}"><span class="kicker">${z.x._type}</span><strong>${z.x.title}</strong></a>`).join(''):'<div class="empty">No encuentro coincidencia directa. Prueba agua, ENS, alumbrado, vivienda, contratación…</div>'})}
 window.addEventListener('DOMContentLoaded',()=>{sharedUI();globalSearch();window.dispatchEvent(new Event('bm-ready'))});
+
+/* v0.8 · parche de calidad visual + corrección radar BOE + dossier ejecutivo */
+(function(){
+  BM.iconSvg=function(name){
+    const icons={
+      home:'<svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg>',
+      inteligencia:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path></svg>',
+      oportunidades:'<svg viewBox="0 0 24 24"><path d="M12 2v20"></path><path d="M7 6h8a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h8"></path></svg>',
+      proyectos:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="7" rx="1"></rect><rect x="14" y="4" width="7" height="7" rx="1"></rect><rect x="3" y="15" width="7" height="6" rx="1"></rect><rect x="14" y="15" width="7" height="6" rx="1"></rect></svg>',
+      obligaciones:'<svg viewBox="0 0 24 24"><path d="M8 3h8l5 5v13H3V3h5z"></path><path d="M8 8h8M8 12h8M8 16h5"></path></svg>',
+      servicios:'<svg viewBox="0 0 24 24"><path d="M12 2v6"></path><path d="M12 16v6"></path><path d="M4.9 4.9 9 9"></path><path d="M15 15l4.1 4.1"></path><path d="M2 12h6"></path><path d="M16 12h6"></path><path d="M4.9 19.1 9 15"></path><path d="M15 9l4.1-4.1"></path><circle cx="12" cy="12" r="3"></circle></svg>',
+      herramientas:'<svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.2 2.2-3.2-3.2 2.4-2z"></path></svg>',
+      observatorio:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 3"></path></svg>',
+      ejecutivo:'<svg viewBox="0 0 24 24"><path d="M4 19V9"></path><path d="M10 19V5"></path><path d="M16 19v-8"></path><path d="M22 19v-12"></path></svg>',
+      espacio:'<svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.6-7 11-7 11z"></path></svg>',
+      localidad:'<svg viewBox="0 0 24 24"><path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>',
+      download:'<svg viewBox="0 0 24 24"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M4 21h16"></path></svg>'
+    };
+    return icons[name]||icons.home;
+  };
+  BM.decorateChrome=function(){
+    const base=this.base();
+    document.querySelectorAll('.brand').forEach((el,idx)=>{
+      if(el.dataset.decorated)return;
+      const dark=!!el.closest('.footer');
+      el.dataset.decorated='1';
+      el.innerHTML=`<span class="brand-mark" aria-hidden="true">${this.iconSvg('inteligencia')}</span><span class="brand-meta"><span class="brand-name">Brújula <span>Municipal</span></span><span class="brand-sub">inteligencia local aplicada</span></span>`;
+      if(dark)el.classList.add('brand-neutral');
+    });
+    document.querySelectorAll('.navlinks').forEach(nav=>{
+      if(!nav.querySelector('[data-nav="ejecutivo"]')){
+        const a=document.createElement('a');
+        a.href=base+'ejecutivo/';
+        a.dataset.nav='ejecutivo';
+        a.textContent='Ejecutivo';
+        nav.insertBefore(a,nav.lastElementChild||null);
+      }
+      nav.querySelectorAll('a').forEach(a=>{
+        if(a.querySelector('.nav-icon'))return;
+        const href=a.getAttribute('href')||''; const txt=(a.textContent||'').trim().toLowerCase();
+        let key='home';
+        if(href.includes('inteligencia')||txt.includes('inteligencia'))key='inteligencia';
+        else if(href.includes('oportunidades')||txt.includes('oportunidades'))key='oportunidades';
+        else if(href.includes('proyectos')||txt.includes('proyectos'))key='proyectos';
+        else if(href.includes('obligaciones')||txt.includes('obligaciones'))key='obligaciones';
+        else if(href.includes('servicios')||txt.includes('servicios'))key='servicios';
+        else if(href.includes('herramientas')||txt.includes('herramientas'))key='herramientas';
+        else if(href.includes('observatorio')||txt.includes('observatorio'))key='observatorio';
+        else if(href.includes('ejecutivo')||txt.includes('ejecutivo'))key='ejecutivo';
+        const ic=document.createElement('span');ic.className='nav-icon';ic.setAttribute('aria-hidden','true');ic.innerHTML=this.iconSvg(key);a.prepend(ic);
+      })
+    });
+    document.querySelectorAll('.workspace-btn').forEach(b=>{if(!b.querySelector('.btn-icon')){const s=document.createElement('span');s.className='btn-icon';s.innerHTML=this.iconSvg('espacio');b.prepend(s)}});
+    document.querySelectorAll('.municipality-btn').forEach(b=>{if(!b.querySelector('.btn-icon')){const s=document.createElement('span');s.className='btn-icon';s.innerHTML=this.iconSvg('localidad');b.prepend(s)}});
+    document.querySelectorAll('a[href$="ejecutivo/"],a[href*="/ejecutivo/"]').forEach(b=>{if(!b.querySelector('.btn-icon') && !b.classList.contains('nav-icon')){const s=document.createElement('span');s.className='btn-icon';s.innerHTML=this.iconSvg('ejecutivo');b.prepend(s)}});
+    let fav=document.querySelector('link[rel="icon"]'); if(!fav){fav=document.createElement('link');fav.rel='icon';document.head.appendChild(fav)} fav.href=base+'assets/img/logo-brujula.svg';
+  };
+  BM.sanitizeBoeCandidate=function(item){
+    const x={...item};
+    const sourceNoise=/(^|\b)(200\s*ok|20\d{6}T\d{6}Z|content-type|content-length|server:|connection:|text\/html|utf-8|status\s*:)/i;
+    const combined=[x.title,x.summary,x.norm,x.note,x.description].filter(Boolean).join(' · ');
+    if(x.review_status==='pending' && (sourceNoise.test(combined)||/^[0-9TZ :\-]+$/.test((x.title||'').trim()))){
+      const normLabel=x.norm||x.boe_id||'Cambio normativo detectado en BOE';
+      x.title=normLabel.startsWith('Cambio')?normLabel:`Cambio normativo detectado · ${normLabel}`;
+      x.summary='Entrada detectada automáticamente en el radar normativo BOE. El texto original necesita revisión editorial antes de convertirse en una obligación práctica.';
+    }
+    if(x.review_status==='pending'){
+      x.summary=x.summary||'Cambio normativo detectado automáticamente en el radar BOE. Requiere revisión editorial.';
+      if(!x.norm&&x.boe_id)x.norm=x.boe_id;
+    }
+    return x;
+  };
+  const _obligations=BM.obligations.bind(BM);
+  BM.obligations=async function(){const out=await _obligations(); return out.map(x=>this.sanitizeBoeCandidate(x))};
+  BM.executiveBrief=async function(profile){
+    const p=profile||this.getProfile(); if(!p) return null;
+    const [metrics,signals,portfolio,plan,support,services,obls,opps,peer]=await Promise.all([
+      this.metricsFor(p), this.metricsFor(p).then(m=>this.territorialSignals(m)), this.strategicPortfolio(p), this.build90DayPlan(p), this.support(), this.services(), this.obligations(), this.opportunities(), this.peerContext(p, await this.metricsFor(p))
+    ]);
+    const urgent=(obls||[]).filter(x=>x.review_status!=='pending').filter(x=>['critico','alto'].includes(x.impact)).slice(0,5);
+    const funding=[...(opps||[])].map(o=>({o,m:this.matchOpportunity(o,p),s:this.opportunityScore(o,p)})).filter(x=>x.s>-90).sort((a,b)=>b.s-a.s).slice(0,5);
+    const relevantSupport=this.supportFor(p,support).slice(0,4);
+    const relevantServices=(services||[]).filter(s=>(portfolio.year1||[]).some(pr=>(pr.tags||[]).some(t=>(s.topics||[]).includes(t)))).slice(0,4);
+    const cap=this.getCapacity();
+    const executiveSignals=[...signals].sort((a,b)=>(b.priority||0)-(a.priority||0)).slice(0,6);
+    return {generated_at:new Date().toISOString(),profile:p,metrics,signals:executiveSignals,capacity:cap,peer,portfolio,plan,urgent,funding,relevantSupport,relevantServices};
+  };
+  BM.executiveMarkdown=function(r){
+    if(!r) return '# Brújula Municipal\n\nSin localidad seleccionada.';
+    const fmt=id=>this.metricFormat(id,r.metrics?.[id]);
+    const lines=[];
+    lines.push(`# Dossier ejecutivo · ${r.profile.name}`);
+    lines.push('');
+    lines.push(`- Generado: ${new Date(r.generated_at).toLocaleString('es-ES')}`);
+    lines.push(`- Localidad: ${r.profile.name}`);
+    lines.push(`- Contexto: ${(r.profile.entity_type==='eatim'?'EATIM · ':'')}${r.profile.parent_municipality?'municipio de '+r.profile.parent_municipality+' · ':''}${r.profile.province||''} · ${r.profile.autonomous_region||''}`);
+    lines.push('');
+    lines.push('## Señales clave');
+    (r.signals||[]).forEach(s=>lines.push(`- **${s.title}** — ${s.explanation||'Señal territorial detectada.'} (${this.metricFormat(s.metric,r.metrics?.[s.metric])})`));
+    if(!(r.signals||[]).length) lines.push('- Sin señales destacadas en la copia actual.');
+    lines.push('');
+    lines.push('## Indicadores de contexto');
+    [['Población','population'],['Variación población','population_change'],['Densidad','density'],['Edad media','mean_age'],['Mayores de 65','over65'],['Cobertura ≥100 Mbps','broadband100'],['Tiempo a hospital','hospital_minutes'],['Renta media','income_per_person']].forEach(([label,id])=>lines.push(`- ${label}: ${fmt(id)}`));
+    lines.push('');
+    lines.push('## Cartera recomendada');
+    lines.push('### 1 año'); (r.portfolio.year1||[]).forEach(x=>lines.push(`- ${x.title}`));
+    lines.push('### 3 años'); (r.portfolio.year3||[]).forEach(x=>lines.push(`- ${x.title}`));
+    lines.push('### 5 años'); (r.portfolio.year5||[]).forEach(x=>lines.push(`- ${x.title}`));
+    lines.push('');
+    lines.push('## Financiación a revisar');
+    (r.funding||[]).forEach(x=>lines.push(`- **${x.o.title}** — ${x.m.label}`));
+    if(!(r.funding||[]).length) lines.push('- Sin oportunidades destacadas.');
+    lines.push('');
+    lines.push('## Obligaciones prioritarias');
+    (r.urgent||[]).forEach(x=>lines.push(`- ${x.title}`));
+    lines.push('');
+    lines.push('## Servicios existentes y apoyo');
+    [...(r.relevantSupport||[]),...(r.relevantServices||[])].forEach(x=>lines.push(`- ${x.title}`));
+    lines.push('');
+    lines.push('## Plan de 90 días');
+    (r.plan.phases||[]).forEach(ph=>{lines.push(`### ${ph.range} · ${ph.goal}`); (ph.actions||[]).forEach(a=>lines.push(`- ${a}`)); lines.push('')});
+    lines.push('');
+    lines.push('---');
+    lines.push('Brújula Municipal · dossier generado localmente en el navegador.');
+    return lines.join('\n');
+  };
+  BM.downloadExecutiveBrief=async function(profile){const report=await this.executiveBrief(profile); if(!report)return; const slug=this.normalize(report.profile.name).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'localidad'; this.download(`brujula-${slug}-dossier-ejecutivo.md`, this.executiveMarkdown(report), 'text/markdown;charset=utf-8')};
+  window.addEventListener('DOMContentLoaded',()=>BM.decorateChrome());
+  window.addEventListener('bm-ready',()=>BM.decorateChrome());
+})();
+
+/* v0.9 · salto visual agency top + cockpit + autor */
+(function(){
+  BM.author=async function(){return this.cache.__author||(this.cache.__author=await this.json('data/catalog/author.json'))};
+  BM.audienceBrief=async function(profile,audience='alcaldia'){
+    const r=await this.executiveBrief(profile); if(!r) return null;
+    const map={
+      alcaldia:{title:'Alcaldía / Presidencia',focus:'prioridades, impacto y relato político-técnico',actions:[
+        `Acordar 3 prioridades de mandato para ${r.profile.name}.`,
+        `Validar una cartera corta de actuaciones a 1 año y otra estructural a 3 años.`,
+        `Nombrar responsables y fijar una reunión mensual de seguimiento.`]},
+      secretaria:{title:'Secretaría',focus:'cumplimiento, seguridad jurídica y secuencia administrativa',actions:[
+        `Revisar obligaciones prioritarias y riesgos de cumplimiento.`,
+        `Confirmar disponibilidad de medios propios, convenios y servicios compartidos.`,
+        `Definir procedimiento y documentación mínima por actuación.`]},
+      intervencion:{title:'Intervención',focus:'sostenibilidad económica, cofinanciación y costes recurrentes',actions:[
+        `Revisar impacto presupuestario y cofinanciación de las actuaciones.`,
+        `Calcular coste total de propiedad y gastos no elegibles.`,
+        `Separar actuaciones financiables de mantenimiento estructural.`]},
+      tecnica:{title:'Área técnica / TIC',focus:'viabilidad, arquitectura, servicios existentes y ejecución',actions:[
+        `Comprobar si existe una plataforma pública reutilizable antes de contratar.`,
+        `Definir alcance técnico mínimo viable y dependencias.`,
+        `Ordenar quick wins frente a actuaciones de complejidad alta.`]}
+    };
+    const a=map[audience]||map.alcaldia;
+    return {...r,audience:audience,audience_meta:a};
+  };
+  BM.audienceMarkdown=async function(profile,audience='alcaldia'){
+    const r=await this.audienceBrief(profile,audience); if(!r) return '# Brújula Municipal';
+    const lines=[];
+    lines.push(`# Nota ejecutiva · ${r.audience_meta.title} · ${r.profile.name}`);
+    lines.push('');
+    lines.push(`Foco: ${r.audience_meta.focus}.`);
+    lines.push('');
+    lines.push('## Tres decisiones inmediatas'); r.audience_meta.actions.forEach(x=>lines.push(`- ${x}`));
+    lines.push('');
+    lines.push('## Señales del territorio'); (r.signals||[]).slice(0,4).forEach(s=>lines.push(`- ${s.title}`));
+    lines.push('');
+    lines.push('## Financiación a revisar'); (r.funding||[]).slice(0,4).forEach(x=>lines.push(`- ${x.o.title} — ${x.m.label}`));
+    lines.push('');
+    lines.push('## Obligaciones prioritarias'); (r.urgent||[]).slice(0,4).forEach(x=>lines.push(`- ${x.title}`));
+    lines.push('');
+    lines.push('## Cartera 1 año'); (r.portfolio.year1||[]).slice(0,5).forEach(x=>lines.push(`- ${x.title}`));
+    lines.push('');
+    lines.push('## Próximo paso'); lines.push(`- Abrir el Plan de 90 días y asignar responsables.`);
+    return lines.join('\n');
+  };
+  BM.downloadAudienceBrief=async function(profile,audience='alcaldia'){ const r=await this.audienceBrief(profile,audience); if(!r)return; const slug=this.normalize(r.profile.name).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'localidad'; this.download(`brujula-${slug}-nota-${audience}.md`, await this.audienceMarkdown(profile,audience), 'text/markdown;charset=utf-8') };
+  BM.injectContactCTA=async function(){
+    if(document.querySelector('.contact-float')) return;
+    try{
+      const a=await this.author();
+      const wrap=document.createElement('aside'); wrap.className='contact-float';
+      wrap.innerHTML=`<div class="contact-float-inner"><div class="kicker">Autor</div><strong>${a.name}</strong><p>${a.headline}</p><div class="contact-float-actions"><a class="btn btn-primary" href="${this.base()}autor/">Ver perfil</a><a class="btn" href="${this.base()}autor/#linkedin">Contacto</a></div></div>`;
+      document.body.appendChild(wrap);
+    }catch(e){}
+  };
+  const _decorate=BM.decorateChrome.bind(BM);
+  BM.decorateChrome=function(){ _decorate();
+    document.querySelectorAll('.navlinks').forEach(nav=>{
+      if(!nav.querySelector('[data-nav="cockpit"]')){const a=document.createElement('a');a.href=this.base()+'cockpit/';a.dataset.nav='cockpit';a.textContent='Cockpit';nav.insertBefore(a,nav.children[2]||null)}
+      if(!nav.querySelector('[data-nav="autor"]')){const a=document.createElement('a');a.href=this.base()+'autor/';a.dataset.nav='autor';a.textContent='Autor';nav.appendChild(a)}
+      nav.querySelectorAll('a').forEach(a=>{
+        if(a.querySelector('.nav-icon')) return;
+        let key='home'; const href=a.getAttribute('href')||''; const txt=(a.textContent||'').toLowerCase();
+        if(href.includes('cockpit')||txt.includes('cockpit')) key='ejecutivo';
+        else if(href.includes('autor')||txt.includes('autor')) key='localidad';
+        const ic=document.createElement('span'); ic.className='nav-icon'; ic.setAttribute('aria-hidden','true'); ic.innerHTML=this.iconSvg(key); a.prepend(ic);
+      });
+    });
+  };
+  window.addEventListener('bm-ready',()=>BM.injectContactCTA());
+})();
+
+/* v1.0 · motor de decisiones, casos replicables y presentación */
+(function(){
+  BM.cases=async function(){return this.cache.__cases||(this.cache.__cases=await this.json('data/catalog/casos.json'))};
+  BM.caseSimilarity=function(c,profile,project=null){
+    let score=0,reasons=[];
+    const prefs=this.getPrefs(), priorities=prefs.priorities||[];
+    const ptags=new Set([...(project?.tags||[]),project?.category].filter(Boolean));
+    const ctags=new Set([...(c.tags||[]),c.category].filter(Boolean));
+    for(const t of ctags){if(ptags.has(t)){score+=5;reasons.push('misma temática/proyecto')} if(priorities.includes(t)){score+=3;reasons.push('prioridad declarada')}}
+    const pop=profile?.municipal_population??profile?.population;
+    if(pop!=null&&c.population!=null){const ratio=Math.max(pop,c.population)/Math.max(1,Math.min(pop,c.population));if(ratio<=2){score+=4;reasons.push('escala demográfica parecida')}else if(ratio<=5){score+=2;reasons.push('escala comparable')}}
+    if(profile?.province&&c.province&&this.normalize(profile.province)===this.normalize(c.province)){score+=2;reasons.push('misma provincia')}
+    if(c.replicable){score+=2;reasons.push('lección replicable documentada')}
+    return {score,reasons:[...new Set(reasons)]};
+  };
+  BM.similarCases=async function(profile,project=null,limit=8){const cs=await this.cases();return cs.map(c=>({case:c,...this.caseSimilarity(c,profile,project)})).sort((a,b)=>b.score-a.score).slice(0,limit)};
+  BM.projectOpportunityLinks=async function(profile,project){
+    const opps=await this.opportunities(); const tags=new Set([project.category,...(project.tags||[])]);
+    return opps.map(o=>{const overlap=(o.topics||[]).filter(t=>tags.has(t));const match=this.matchOpportunity(o,profile);let score=this.opportunityScore(o,profile)+overlap.length*5; if(!overlap.length)score-=5;return {opportunity:o,match,overlap,score}}).filter(x=>x.score>-80).sort((a,b)=>b.score-a.score).slice(0,8)
+  };
+  BM.priorityRanking=async function(profile){
+    const [projects,metrics,signals,opps]=await Promise.all([this.json('data/catalog/proyectos.json'),this.metricsFor(profile),this.metricsFor(profile).then(m=>this.territorialSignals(m)),this.opportunities()]);
+    const signalTags=[...new Set(signals.flatMap(s=>s.tags||[]))]; const prefs=this.getPrefs(), priorities=prefs.priorities||[];
+    const rows=[];
+    for(const p of projects){
+      let impact=0,urgency=0,feasibility=0,funding=0,reasons=[];
+      for(const t of p.tags||[]){if(signalTags.includes(t)){impact+=3;reasons.push('responde a una señal territorial')}if(priorities.includes(t)||priorities.includes(p.category)){impact+=4;reasons.push('prioridad declarada')}}
+      impact+=Math.max(0,this.projectFitScore(p,profile));
+      if(['baja','media'].includes(p.complexity)){feasibility+=3;reasons.push('complejidad asumible')} else feasibility+=1;
+      const cap=this.getCapacity(); if(cap.technical==='low'&&p.complexity==='alta')feasibility-=3;if(cap.investment==='low'&&['€€€','€€€€'].includes(p.cost_band))feasibility-=3;
+      const linked=opps.map(o=>({o,m:this.matchOpportunity(o,profile),overlap:(o.topics||[]).filter(t=>(p.tags||[]).includes(t)||t===p.category)})).filter(x=>x.overlap.length&&x.m.level!=='fail');
+      if(linked.length){funding=Math.min(6,linked.length*2);reasons.push(`${linked.length} vía(s) de financiación relacionada(s)`)}
+      const urgencyTags=['agua','ciberseguridad','servicios','energia','movilidad']; if((p.tags||[]).some(t=>urgencyTags.includes(t)&&signalTags.includes(t)))urgency+=3;
+      const total=impact+urgency+feasibility+funding;
+      rows.push({project:p,total,impact,urgency,feasibility,funding,reasons:[...new Set(reasons)],linked_count:linked.length});
+    }
+    return rows.sort((a,b)=>b.total-a.total).slice(0,20);
+  };
+  BM.institutionalPack=async function(profile){
+    const [exec,ranking,cases]=await Promise.all([this.executiveBrief(profile),this.priorityRanking(profile),this.similarCases(profile,null,6)]);if(!exec)return null;
+    return {generated_at:new Date().toISOString(),profile,executive:exec,ranking,cases};
+  };
+  BM.institutionalMarkdown=function(pack){
+    if(!pack)return '# Brújula Municipal'; const p=pack.profile,e=pack.executive, lines=[];
+    lines.push(`# Paquete institucional · ${p.name}`,'',`Generado: ${new Date(pack.generated_at).toLocaleString('es-ES')}`,'');
+    lines.push('## 1. Resumen ejecutivo'); (e.signals||[]).slice(0,5).forEach(s=>lines.push(`- ${s.title}: ${s.explanation||''}`));
+    lines.push('','## 2. Top 10 prioridades explicadas'); pack.ranking.slice(0,10).forEach((r,i)=>lines.push(`${i+1}. **${r.project.title}** · ${r.total} puntos internos · ${r.reasons.join('; ')}`));
+    lines.push('','## 3. Financiación a revisar'); (e.funding||[]).forEach(x=>lines.push(`- ${x.o.title} — ${x.m.label}`));
+    lines.push('','## 4. Obligaciones prioritarias'); (e.urgent||[]).forEach(x=>lines.push(`- ${x.title}`));
+    lines.push('','## 5. Casos reales para aprender'); pack.cases.forEach(x=>lines.push(`- **${x.case.municipality}** · ${x.case.project} — ${x.case.replicable}`));
+    lines.push('','## 6. Cartera estratégica'); lines.push('### 1 año');(e.portfolio.year1||[]).forEach(x=>lines.push(`- ${x.title}`));lines.push('### 3 años');(e.portfolio.year3||[]).forEach(x=>lines.push(`- ${x.title}`));lines.push('### 5 años');(e.portfolio.year5||[]).forEach(x=>lines.push(`- ${x.title}`));
+    lines.push('','## 7. Plan de 90 días');(e.plan.phases||[]).forEach(ph=>{lines.push(`### ${ph.range} · ${ph.goal}`);(ph.actions||[]).forEach(a=>lines.push(`- ${a}`))});
+    lines.push('','---','Brújula Municipal · documento orientativo y trazable. Las fuentes oficiales prevalecen.');return lines.join('\n')
+  };
+  BM.downloadInstitutionalPack=async function(profile){const pack=await this.institutionalPack(profile);if(!pack)return;const slug=this.normalize(pack.profile.name).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'localidad';this.download(`brujula-${slug}-paquete-institucional.md`,this.institutionalMarkdown(pack),'text/markdown;charset=utf-8')};
+})();
+
+/* v1.1 · actualización diaria + SEO dinámico */
+(function(){
+  const _dec=BM.decorateChrome.bind(BM);
+  BM.decorateChrome=function(){
+    _dec();
+    document.querySelectorAll('.navlinks').forEach(nav=>{
+      if(!nav.querySelector('[data-nav="actualizacion"]')){
+        const a=document.createElement('a'); a.href=this.base()+'actualizacion/'; a.dataset.nav='actualizacion'; a.textContent='Actualización';
+        const obs=[...nav.querySelectorAll('a')].find(x=>(x.textContent||'').toLowerCase().includes('observatorio'));
+        if(obs) nav.insertBefore(a,obs); else nav.appendChild(a);
+        const ic=document.createElement('span');ic.className='nav-icon';ic.setAttribute('aria-hidden','true');ic.innerHTML=this.iconSvg('observatorio');a.prepend(ic);
+      }
+    });
+  };
+  BM.setMeta=function(name,value,property=false){let q=property?`meta[property="${name}"]`:`meta[name="${name}"]`,m=document.querySelector(q);if(!m){m=document.createElement('meta');m.setAttribute(property?'property':'name',name);document.head.appendChild(m)}m.setAttribute('content',value)};
+  BM.applyDynamicSeo=async function(){
+    const path=location.pathname, id=new URLSearchParams(location.search).get('id'); if(!id)return;
+    let item=null,kind='';
+    try{
+      if(path.includes('/proyectos/detalle')){item=(await this.json('data/catalog/proyectos.json')).find(x=>x.id===id);kind='Proyecto'}
+      else if(path.includes('/oportunidades/detalle')){item=(await this.opportunities()).find(x=>x.id===id);kind='Oportunidad'}
+      else if(path.includes('/obligaciones/detalle')){item=(await this.obligations()).find(x=>x.id===id);kind='Obligación'}
+      else if(path.includes('/casos/detalle')){item=(await this.json('data/catalog/casos.json')).find(x=>x.id===id);kind='Caso real'}
+      if(!item)return;
+      const title=`${item.title||item.project||item.municipality||kind} · Brújula Municipal`;
+      const desc=(item.summary||item.result||item.why||item.problem||`${kind} en Brújula Municipal`).slice(0,280);
+      document.title=title; this.setMeta('description',desc); this.setMeta('og:title',title,true); this.setMeta('og:description',desc,true); this.setMeta('twitter:title',title); this.setMeta('twitter:description',desc);
+      let c=document.querySelector('link[rel="canonical"]');if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c)}c.href=location.href.split('#')[0];
+    }catch(e){}
+  };
+  window.addEventListener('bm-ready',()=>{BM.decorateChrome();BM.applyDynamicSeo()});
+})();

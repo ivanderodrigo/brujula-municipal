@@ -1,13 +1,6 @@
-# Python local artifacts
 __pycache__/
-*.py[cod]
-
-# Local caches / downloaded source files
-tools/cache/*
-!tools/cache/.gitkeep
-
-# OS/editor noise
+*.pyc
+logs/*.log
+logs/*.tmp
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
