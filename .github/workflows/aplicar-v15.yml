@@ -1,0 +1,26 @@
+name: Aplicar Brújula v1.5 visual + hotfix
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  aplicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Aplicar parche v1.5
+        run: python tools/aplicar_parche_v15.py
+      - name: Comprobar JS del overlay
+        run: node --check assets/js/agency-ultra-v15.js
+      - name: Commit
+        run: |
+          git config user.name "brujula-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "ui: Brújula v1.5 Agency Ultra + hotfix pipeline"
+            git push
+          fi
