@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://brujulamunicipal.eu.org/sitemap.xml

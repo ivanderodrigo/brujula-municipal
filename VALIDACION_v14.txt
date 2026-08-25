@@ -1,0 +1,14 @@
+VALIDACIÓN BRÚJULA MUNICIPAL v1.4 FULL
+
+- Home premium integrada: OK
+- Mapa de España + localidad seleccionada: OK
+- Diagrama de flujo central: OK
+- Módulos integrados: OK
+- Navegación por módulos: OK
+- Copia local / restauración: OK
+- Página de actualización: OK
+- Páginas cockpit/ejecutivo/decisiones/etc.: OK
+- SEO base: OK
+- Accesibilidad base: OK
+- Scripts JS: OK
+- Lista para despliegue estático: OK
